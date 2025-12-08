@@ -3,24 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Руины Эхо-Фермы | Echo Farm Ruins</title>
+    <title>Verdant Weave Wiki | Полное руководство</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700&family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a472a;
-            --secondary: #2a623d;
-            --accent: #5d9c47;
-            --magic: #9d4edd;
-            --danger: #c81d25;
-            --warning: #ff9e00;
-            --success: #38b000;
-            --dark: #0d1b1e;
-            --earth: #8b4513;
-            --light: #f1faee;
-            --shadow: rgba(0, 0, 0, 0.5);
+            --wiki-bg: #1a1a2e;
+            --wiki-sidebar: #16213e;
+            --wiki-content: #0f3460;
+            --wiki-accent: #e94560;
+            --wiki-text: #f1f1f1;
+            --wiki-border: #2d4059;
         }
         
         * {
@@ -30,1746 +23,820 @@
         }
         
         body {
-            font-family: 'Raleway', sans-serif;
-            background-color: var(--dark);
-            color: var(--light);
+            font-family: 'Montserrat Alternates', sans-serif;
+            background: var(--wiki-bg);
+            color: var(--wiki-text);
             line-height: 1.6;
-            overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(26, 71, 42, 0.3) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(157, 78, 221, 0.2) 0%, transparent 40%),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%231a472a" opacity="0.1" d="M50,0 L60,40 L100,50 L60,60 L50,100 L40,60 L0,50 L40,40 Z"/></svg>');
         }
         
-        h1, h2, h3, h4 {
-            font-family: 'Cinzel', serif;
-            font-weight: 700;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
-            padding: 20px 0;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 2px solid var(--accent);
-        }
-        
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 30%, var(--magic) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, var(--accent) 0%, transparent 50%);
-            opacity: 0.15;
-        }
-        
-        .logo {
+        .wiki-container {
             display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 1.8rem;
-            margin-bottom: 10px;
+            min-height: 100vh;
         }
         
-        .logo i {
-            color: var(--accent);
-            font-size: 2.5rem;
-            text-shadow: 0 0 10px var(--success);
-        }
-        
-        .logo-text {
-            background: linear-gradient(90deg, var(--accent), var(--magic));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(93, 156, 71, 0.3);
-        }
-        
-        .tagline {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 800px;
-            margin-bottom: 20px;
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 80px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 10% 20%, rgba(42, 98, 61, 0.2) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(157, 78, 221, 0.1) 0%, transparent 40%);
-            pointer-events: none;
-        }
-        
-        .hero-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero-text {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .hero-text h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            background: linear-gradient(90deg, var(--accent), var(--magic));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(93, 156, 71, 0.5);
-        }
-        
-        .hero-text p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            margin-right: 15px;
-            margin-bottom: 15px;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(42, 98, 61, 0.4);
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(42, 98, 61, 0.6);
-            background: linear-gradient(90deg, var(--accent), var(--secondary));
-        }
-        
-        .cta-button.magic {
-            background: linear-gradient(90deg, var(--magic), #7b2cbf);
-        }
-        
-        .cta-button.magic:hover {
-            background: linear-gradient(90deg, #7b2cbf, var(--magic));
-            box-shadow: 0 10px 25px rgba(157, 78, 221, 0.6);
-        }
-        
-        .farm-visual {
-            flex: 1;
-            min-width: 300px;
-            position: relative;
-        }
-        
-        .farm-grid {
-            background: rgba(26, 71, 42, 0.3);
-            border-radius: 15px;
+        /* Sidebar */
+        .wiki-sidebar {
+            width: 280px;
+            background: var(--wiki-sidebar);
             padding: 20px;
-            border: 1px solid var(--accent);
-            box-shadow: 
-                0 10px 30px rgba(0, 0, 0, 0.5),
-                inset 0 0 20px rgba(93, 156, 71, 0.1);
-            backdrop-filter: blur(10px);
-        }
-        
-        .farm-plot-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-        
-        .plot {
-            background: rgba(139, 69, 19, 0.3);
-            border-radius: 8px;
-            padding: 20px 10px;
-            text-align: center;
-            transition: all 0.3s;
-            border: 2px solid rgba(139, 69, 19, 0.5);
-            position: relative;
-            overflow: hidden;
-            min-height: 100px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        .plot::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.5s;
-        }
-        
-        .plot:hover::before {
-            left: 100%;
-        }
-        
-        .plot:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 5px 15px rgba(93, 156, 71, 0.4);
-        }
-        
-        .plot-empty {
-            background: rgba(139, 69, 19, 0.2);
-            border-style: dashed;
-        }
-        
-        .plot-planted-1 { 
-            background: rgba(93, 156, 71, 0.2); 
-            border-color: var(--success);
-        }
-        .plot-planted-2 { 
-            background: rgba(255, 158, 0, 0.2); 
-            border-color: var(--warning);
-        }
-        .plot-planted-3 { 
-            background: rgba(157, 78, 221, 0.2); 
-            border-color: var(--magic);
-        }
-        
-        .plot-growing {
-            animation: pulse 2s infinite;
-        }
-        
-        .plot-ready {
-            animation: glow 3s infinite;
-            border-color: var(--success) !important;
-        }
-        
-        .plot-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .plot-icon {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
-        
-        .plot-name {
-            font-size: 0.8rem;
-            opacity: 0.9;
-        }
-        
-        .plot-progress {
-            height: 4px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 2px;
-            margin-top: 8px;
-            overflow: hidden;
-        }
-        
-        .plot-progress-bar {
-            height: 100%;
-            background: var(--accent);
-            border-radius: 2px;
-            width: 0%;
-            transition: width 0.5s;
-        }
-        
-        /* Sections */
-        .section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            color: var(--accent);
-            position: relative;
-            text-shadow: 0 0 20px rgba(93, 156, 71, 0.3);
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent), var(--magic));
-            border-radius: 2px;
-            box-shadow: 0 0 10px var(--accent);
-        }
-        
-        /* Gameplay Section */
-        .gameplay-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .gameplay-card {
-            background: rgba(26, 71, 42, 0.3);
-            border-radius: 15px;
-            padding: 30px;
-            border: 1px solid rgba(93, 156, 71, 0.2);
-            transition: all 0.3s;
-            backdrop-filter: blur(10px);
-        }
-        
-        .gameplay-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(93, 156, 71, 0.2);
-        }
-        
-        .gameplay-card i {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--accent);
-            text-shadow: 0 0 15px var(--success);
-        }
-        
-        .gameplay-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--success);
-        }
-        
-        /* Features Section */
-        .features {
-            background: 
-                radial-gradient(circle at 70% 30%, rgba(42, 98, 61, 0.1) 0%, transparent 70%),
-                radial-gradient(circle at 30% 70%, rgba(157, 78, 221, 0.1) 0%, transparent 70%);
-            border-top: 1px solid rgba(93, 156, 71, 0.2);
-            border-bottom: 1px solid rgba(93, 156, 71, 0.2);
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature {
-            text-align: center;
-            padding: 25px;
-            background: rgba(26, 71, 42, 0.2);
-            border-radius: 10px;
-            border: 1px solid rgba(93, 156, 71, 0.1);
-            transition: all 0.3s;
-        }
-        
-        .feature:hover {
-            border-color: var(--accent);
-            transform: translateY(-5px);
-        }
-        
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--accent), var(--magic));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            box-shadow: 0 0 20px var(--accent);
-        }
-        
-        .feature-icon i {
-            font-size: 1.8rem;
-            color: white;
-        }
-        
-        .feature h4 {
-            margin-bottom: 15px;
-            color: var(--accent);
-        }
-        
-        /* Demo Section */
-        .demo-container {
-            background: rgba(26, 71, 42, 0.3);
-            border-radius: 15px;
-            padding: 30px;
-            border: 1px solid var(--accent);
-            margin-top: 40px;
-            backdrop-filter: blur(10px);
-            box-shadow: 
-                0 10px 30px rgba(0, 0, 0, 0.3),
-                inset 0 0 20px rgba(93, 156, 71, 0.1);
-        }
-        
-        .demo-tabs {
-            display: flex;
-            border-bottom: 2px solid rgba(93, 156, 71, 0.3);
-            margin-bottom: 30px;
-        }
-        
-        .demo-tab {
-            padding: 15px 30px;
-            background: transparent;
-            border: none;
-            color: var(--light);
-            cursor: pointer;
-            font-family: 'Raleway', sans-serif;
-            font-weight: 600;
-            font-size: 1rem;
-            position: relative;
-            transition: all 0.3s;
-        }
-        
-        .demo-tab.active {
-            color: var(--accent);
-        }
-        
-        .demo-tab.active::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--accent);
-            box-shadow: 0 0 10px var(--accent);
-        }
-        
-        .demo-tab:hover:not(.active) {
-            color: var(--success);
-        }
-        
-        .demo-content {
-            display: none;
-        }
-        
-        .demo-content.active {
-            display: block;
-        }
-        
-        .farm-demo-controls {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        
-        .farm-button {
-            background: linear-gradient(90deg, rgba(93, 156, 71, 0.3), rgba(139, 69, 19, 0.3));
-            border: 1px solid rgba(93, 156, 71, 0.4);
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: 'Raleway', sans-serif;
-            font-weight: 500;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .farm-button:hover {
-            background: linear-gradient(90deg, rgba(93, 156, 71, 0.5), rgba(139, 69, 19, 0.5));
-            border-color: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(93, 156, 71, 0.3);
-        }
-        
-        .farm-button i {
-            font-size: 1.5rem;
-        }
-        
-        .demo-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .stat {
-            background: rgba(26, 71, 42, 0.4);
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            border: 1px solid rgba(93, 156, 71, 0.2);
-            transition: all 0.3s;
-        }
-        
-        .stat:hover {
-            border-color: var(--accent);
-            transform: translateY(-5px);
-        }
-        
-        .stat-value {
-            font-size: 2.2rem;
-            font-family: 'Cinzel', serif;
-            margin-bottom: 5px;
-            text-shadow: 0 0 10px currentColor;
-        }
-        
-        .stat-normal { color: var(--success); }
-        .stat-warning { color: var(--warning); }
-        .stat-danger { color: var(--danger); }
-        .stat-magic { color: var(--magic); }
-        
-        .demo-message {
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            font-weight: 500;
-            background: rgba(26, 71, 42, 0.2);
-            border-left: 4px solid var(--accent);
-        }
-        
-        .demo-message.success {
-            background: rgba(56, 176, 0, 0.1);
-            border-left-color: var(--success);
-        }
-        
-        .demo-message.warning {
-            background: rgba(255, 158, 0, 0.1);
-            border-left-color: var(--warning);
-        }
-        
-        .demo-message.danger {
-            background: rgba(200, 29, 37, 0.1);
-            border-left-color: var(--danger);
-        }
-        
-        /* Combat Demo */
-        .combat-arena {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 40px;
-            margin: 30px 0;
-        }
-        
-        .combatant {
-            text-align: center;
-            padding: 20px;
-            border-radius: 10px;
-            flex: 1;
-        }
-        
-        .player-combatant {
-            background: rgba(26, 71, 42, 0.3);
-            border: 2px solid var(--accent);
-        }
-        
-        .enemy-combatant {
-            background: rgba(200, 29, 37, 0.1);
-            border: 2px solid var(--danger);
-        }
-        
-        .combatant-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            box-shadow: 0 0 20px currentColor;
-        }
-        
-        .player-avatar {
-            background: rgba(93, 156, 71, 0.3);
-            color: var(--accent);
-            border: 3px solid var(--accent);
-        }
-        
-        .enemy-avatar {
-            background: rgba(200, 29, 37, 0.3);
-            color: var(--danger);
-            border: 3px solid var(--danger);
-        }
-        
-        .health-bar {
-            height: 20px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-            margin: 10px 0;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .health-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--danger), var(--warning), var(--success));
-            border-radius: 10px;
-            width: 100%;
-            transition: width 0.5s;
-        }
-        
-        .health-text {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px black;
-        }
-        
-        .combat-actions {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 10px;
-            margin-top: 20px;
-        }
-        
-        .combat-button {
-            padding: 12px;
-            border-radius: 6px;
-            border: 1px solid rgba(93, 156, 71, 0.4);
-            background: rgba(26, 71, 42, 0.3);
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .combat-button:hover:not(:disabled) {
-            background: rgba(93, 156, 71, 0.3);
-            transform: translateY(-3px);
-        }
-        
-        .combat-button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-        
-        .combat-log {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 20px;
-            max-height: 200px;
+            position: fixed;
+            height: 100vh;
             overflow-y: auto;
+            border-right: 3px solid var(--wiki-accent);
         }
         
-        .log-entry {
-            padding: 5px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .log-entry:last-child {
-            border-bottom: none;
-        }
-        
-        /* Code Preview */
-        .code-preview {
-            background: #0d1b1e;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 40px;
-            overflow-x: auto;
-            border: 1px solid var(--accent);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        .code-preview pre {
-            color: #f1faee;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-        
-        .code-keyword { color: #ff79c6; }
-        .code-function { color: #7ce7a0; }
-        .code-string { color: #ffb347; }
-        .code-comment { color: #5d9c47; }
-        .code-class { color: #9d4edd; }
-        .code-number { color: #bd93f9; }
-        
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
-            padding: 60px 0 30px;
+        .wiki-logo {
             text-align: center;
-            border-top: 2px solid var(--accent);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--wiki-border);
         }
         
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 40px;
-            margin-bottom: 40px;
+        .wiki-logo h1 {
+            font-family: 'Pixelify Sans', cursive;
+            font-size: 2rem;
+            color: var(--wiki-accent);
         }
         
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
+        .wiki-logo span {
+            display: block;
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
         
-        .footer-section h4 {
-            color: var(--accent);
+        .wiki-nav {
+            margin-bottom: 30px;
+        }
+        
+        .nav-section {
             margin-bottom: 20px;
-            font-size: 1.3rem;
         }
         
-        .footer-links {
+        .nav-section h3 {
+            color: var(--wiki-accent);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            padding-left: 10px;
+            border-left: 3px solid var(--wiki-accent);
+        }
+        
+        .nav-links {
             list-style: none;
         }
         
-        .footer-links li {
+        .nav-links li {
+            margin-bottom: 5px;
+        }
+        
+        .nav-links a {
+            color: var(--wiki-text);
+            text-decoration: none;
+            padding: 8px 15px;
+            display: block;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(233, 69, 96, 0.1);
+            color: var(--wiki-accent);
+        }
+        
+        .nav-links a.active {
+            background: var(--wiki-accent);
+            color: white;
+        }
+        
+        .back-to-game {
+            display: block;
+            text-align: center;
+            padding: 12px;
+            background: var(--wiki-accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+        
+        .back-to-game:hover {
+            background: #d63447;
+        }
+        
+        /* Main Content */
+        .wiki-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 40px;
+            background: var(--wiki-content);
+            min-height: 100vh;
+        }
+        
+        .wiki-header {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--wiki-accent);
+        }
+        
+        .wiki-header h1 {
+            font-family: 'Pixelify Sans', cursive;
+            font-size: 2.5rem;
+            color: var(--wiki-accent);
             margin-bottom: 10px;
         }
         
-        .footer-links a {
-            color: var(--light);
-            text-decoration: none;
-            transition: all 0.3s;
-            display: inline-block;
-        }
-        
-        .footer-links a:hover {
-            color: var(--accent);
-            transform: translateX(5px);
-        }
-        
-        .social-links {
+        .breadcrumb {
             display: flex;
-            gap: 15px;
-            justify-content: center;
+            gap: 10px;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--wiki-text);
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--wiki-accent);
+        }
+        
+        .breadcrumb span {
+            color: var(--wiki-accent);
+        }
+        
+        /* Wiki Sections */
+        .wiki-section {
+            background: rgba(15, 52, 96, 0.5);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid var(--wiki-border);
+        }
+        
+        .section-title {
+            font-family: 'Pixelify Sans', cursive;
+            font-size: 1.8rem;
+            color: var(--wiki-accent);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--wiki-border);
+        }
+        
+        /* Crafting Tables */
+        .crafting-tables {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
             margin-top: 20px;
         }
         
-        .social-link {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
+        .crafting-table {
+            background: rgba(26, 26, 46, 0.5);
+            border-radius: 8px;
+            padding: 20px;
+            border: 2px solid var(--wiki-border);
+        }
+        
+        .table-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--wiki-border);
+        }
+        
+        .table-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--wiki-accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s;
-            border: 1px solid rgba(93, 156, 71, 0.3);
+            font-size: 1.5rem;
         }
         
-        .social-link:hover {
-            background: var(--accent);
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(93, 156, 71, 0.4);
-            border-color: var(--accent);
+        .table-info h3 {
+            color: var(--wiki-accent);
+            margin-bottom: 5px;
         }
         
-        .copyright {
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.7);
+        .table-info p {
             font-size: 0.9rem;
+            opacity: 0.8;
         }
         
-        /* Animations */
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; }
-            100% { opacity: 1; }
+        .recipes-list {
+            list-style: none;
         }
         
-        @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0); }
+        .recipes-list li {
+            padding: 10px;
+            margin-bottom: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
-        .float {
-            animation: float 5s infinite ease-in-out;
+        .recipe-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
-        @keyframes glow {
-            0% { box-shadow: 0 0 10px var(--success); }
-            50% { box-shadow: 0 0 20px var(--accent); }
-            100% { box-shadow: 0 0 10px var(--success); }
+        .item-icon {
+            width: 30px;
+            height: 30px;
+            background: #4a7c59;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
-        .glow {
-            animation: glow 3s infinite;
+        /* Recipe Grid */
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            width: 120px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            border-radius: 5px;
         }
         
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        .recipe-cell {
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
-        .shake {
-            animation: shake 0.5s;
+        .recipe-cell.filled {
+            background: #8b7355;
+        }
+        
+        /* Items Grid */
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .item-card {
+            background: rgba(26, 26, 46, 0.5);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid var(--wiki-border);
+            transition: all 0.3s;
+        }
+        
+        .item-card:hover {
+            border-color: var(--wiki-accent);
+            transform: translateY(-5px);
+        }
+        
+        .item-icon-large {
+            width: 60px;
+            height: 60px;
+            background: #4a7c59;
+            border-radius: 8px;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .item-rarity {
+            font-size: 0.8rem;
+            padding: 3px 8px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+        
+        .rarity-common { background: #6c757d; }
+        .rarity-uncommon { background: #28a745; }
+        .rarity-rare { background: #007bff; }
+        .rarity-epic { background: #6f42c1; }
+        .rarity-legendary { background: #fd7e14; }
+        
+        /* Search */
+        .wiki-search {
+            margin-bottom: 30px;
+        }
+        
+        .search-box {
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px 15px 50px;
+            background: rgba(26, 26, 46, 0.5);
+            border: 2px solid var(--wiki-border);
+            border-radius: 8px;
+            color: var(--wiki-text);
+            font-size: 1rem;
+        }
+        
+        .search-box i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--wiki-accent);
+        }
+        
+        /* Tables */
+        .wiki-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .wiki-table th {
+            background: var(--wiki-accent);
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .wiki-table td {
+            padding: 10px;
+            border-bottom: 1px solid var(--wiki-border);
+        }
+        
+        .wiki-table tr:hover {
+            background: rgba(233, 69, 96, 0.1);
         }
         
         /* Responsive */
-        @media (max-width: 768px) {
-            .hero-text h1 {
-                font-size: 2.2rem;
+        @media (max-width: 1024px) {
+            .wiki-sidebar {
+                width: 250px;
             }
             
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .farm-plot-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .combat-arena {
-                flex-direction: column;
+            .wiki-content {
+                margin-left: 250px;
             }
         }
         
-        @media (max-width: 480px) {
-            .farm-plot-grid {
-                grid-template-columns: repeat(2, 1fr);
+        @media (max-width: 768px) {
+            .wiki-container {
+                flex-direction: column;
             }
             
-            .hero-text h1 {
-                font-size: 1.8rem;
-            }
-            
-            .cta-button {
-                display: block;
-                margin-bottom: 15px;
-                text-align: center;
+            .wiki-sidebar {
                 width: 100%;
+                height: auto;
+                position: static;
+                border-right: none;
+                border-bottom: 3px solid var(--wiki-accent);
+            }
+            
+            .wiki-content {
+                margin-left: 0;
             }
         }
         
         /* Scrollbar */
         ::-webkit-scrollbar {
-            width: 10px;
+            width: 8px;
         }
         
         ::-webkit-scrollbar-track {
-            background: var(--dark);
+            background: var(--wiki-sidebar);
         }
         
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(var(--accent), var(--magic));
-            border-radius: 5px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(var(--magic), var(--accent));
+            background: var(--wiki-accent);
+            border-radius: 4px;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-leaf"></i>
-                <span class="logo-text">Руины Эхо-Фермы</span>
-            </div>
-            <p class="tagline">Выращивайте магические культуры, сражайтесь с порождениями Раскола и восстановите мир в этой уникальной фермерской RPG.</p>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-content">
-            <div class="hero-text">
-                <h1>ВОЗРОДИ МИР ИЗ ПЕПЛА</h1>
-                <p>После магического катаклизма мир погрузился в хаос. Как хранитель последнего Оазиса, вы должны выращивать эхо-культуры, сражаться с искаженными тварями и восстановить "Сердце Земли".</p>
-                <p>Каждое растение — это история. Каждый враг — это возможность.</p>
-                
-                <button onclick="scrollToDemo()" class="cta-button"><i class="fas fa-seedling"></i> Демо фермы</button>
-                <button onclick="scrollToCombat()" class="cta-button magic"><i class="fas fa-fist-raised"></i> Демо боя</button>
-                <button onclick="scrollToCode()" class="cta-button"><i class="fas fa-code"></i> Архитектура кода</button>
+    <div class="wiki-container">
+        <!-- Sidebar -->
+        <aside class="wiki-sidebar">
+            <div class="wiki-logo">
+                <h1>VERDANT WEAVE WIKI</h1>
+                <span>Полное руководство по игре</span>
             </div>
             
-            <div class="farm-visual">
-                <div class="farm-grid float">
-                    <div class="farm-plot-grid" id="farm-plots">
-                        <!-- Plots will be generated by JavaScript -->
-                    </div>
-                    
-                    <div class="demo-stats">
-                        <div class="stat">
-                            <div class="stat-value stat-normal" id="echo-level">1</div>
-                            <div class="stat-label">Уровень Эхо</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-value stat-normal" id="gold-amount">100</div>
-                            <div class="stat-label">Золото</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-value stat-magic" id="essence-amount">25</div>
-                            <div class="stat-label">Эссенция Раскола</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-value stat-normal" id="reputation-amount">10</div>
-                            <div class="stat-label">Репутация</div>
-                        </div>
-                    </div>
+            <div class="wiki-search">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Поиск по Wiki...">
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Gameplay Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">ТРИ СТОЛПА ИГРЫ</h2>
             
-            <div class="gameplay-cards">
-                <div class="gameplay-card">
-                    <i class="fas fa-seedling"></i>
-                    <h3>Фермерство с историей</h3>
-                    <p>Растения питаются "эхо-памятью" почвы. Выращивайте культуры с уникальными свойствами, приручайте духов природы и мутируйте растения для получения редких ресурсов.</p>
+            <nav class="wiki-nav">
+                <div class="nav-section">
+                    <h3><i class="fas fa-home"></i> Начало</h3>
+                    <ul class="nav-links">
+                        <li><a href="#" class="active">Главная</a></li>
+                        <li><a href="#">Новичкам</a></li>
+                        <li><a href="#">Обновления</a></li>
+                        <li><a href="#">ЧаВо</a></li>
+                    </ul>
                 </div>
                 
-                <div class="gameplay-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Тактические сражения</h3>
-                    <p>Снаряжение зависит от вашего урожая. Тыквенные доспехи, свекольные булавы, луковые луки — каждое оружие имеет уникальные свойства и взаимодействия со стихиями.</p>
+                <div class="nav-section">
+                    <h3><i class="fas fa-tools"></i> Крафтинг</h3>
+                    <ul class="nav-links">
+                        <li><a href="#">Верстак</a></li>
+                        <li><a href="#">Печь</a></li>
+                        <li><a href="#">Наковальня</a></li>
+                        <li><a href="#">Алхимия</a></li>
+                        <li><a href="#">Кузница Души</a></li>
+                        <li><a href="#">Все рецепты</a></li>
+                    </ul>
                 </div>
                 
-                <div class="gameplay-card">
-                    <i class="fas fa-coins"></i>
-                    <h3>Многослойная экономика</h3>
-                    <p>Три валюты: золото для торговли, эссенция для магии, репутация для влияния. Продавайте урожай, трофеи боссов и крафтовые предметы.</p>
+                <div class="nav-section">
+                    <h3><i class="fas fa-shield-alt"></i> Геймплей</h3>
+                    <ul class="nav-links">
+                        <li><a href="#">Выживание</a></li>
+                        <li><a href="#">Боевая система</a></li>
+                        <li><a href="#">Строительство</a></li>
+                        <li><a href="#">Фермерство</a></li>
+                        <li><a href="#">Прогрессия</a></li>
+                    </ul>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="section features">
-        <div class="container">
-            <h2 class="section-title">УНИКАЛЬНЫЕ МЕХАНИКИ</h2>
+                
+                <div class="nav-section">
+                    <h3><i class="fas fa-globe"></i> Мир</h3>
+                    <ul class="nav-links">
+                        <li><a href="#">Биомы</a></li>
+                        <li><a href="#">Существа</a></li>
+                        <li><a href="#">Боссы</a></li>
+                        <li><a href="#">Деревни NPC</a></li>
+                        <li><a href="#">Подземелья</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3><i class="fas fa-cube"></i> Предметы</h3>
+                    <ul class="nav-links">
+                        <li><a href="#">Ресурсы</a></li>
+                        <li><a href="#">Оружие</a></li>
+                        <li><a href="#">Броня</a></li>
+                        <li><a href="#">Инструменты</a></li>
+                        <li><a href="#">Зелья</a></li>
+                    </ul>
+                </div>
+            </nav>
             
-            <div class="features-grid">
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-history"></i>
-                    </div>
-                    <h4>Эхо-память</h4>
-                    <p>Почва помнит прошлое. Выращивайте растения, соответствующие памяти места: битвы, праздники, трагедии.</p>
-                </div>
-                
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-dna"></i>
-                    </div>
-                    <h4>Обратная мутация</h4>
-                    <p>Очищайте врагов особыми растениями, превращая их в мирных NPC, которые помогают на ферме.</p>
-                </div>
-                
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-hand-sparkles"></i>
-                    </div>
-                    <h4>Духи-помощники</h4>
-                    <p>Привлекайте духов природы особыми культурами. Каждый дух дает уникальные бонусы ферме.</p>
-                </div>
-                
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <h4>Магические циклы</h4>
-                    <p>Помимо сезонов, существуют магические циклы Раскола, влияющие на рост растений и силу врагов.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Interactive Demo -->
-    <section id="demo" class="section">
-        <div class="container">
-            <h2 class="section-title">ИНТЕРАКТИВНАЯ ДЕМОНСТРАЦИЯ</h2>
-            <p style="text-align: center; margin-bottom: 30px; font-size: 1.1rem;">Попробуйте основные механики игры: управление фермой и тактические бои.</p>
-            
-            <div class="demo-container">
-                <div class="demo-tabs">
-                    <button class="demo-tab active" onclick="switchTab('farm')">Ферма</button>
-                    <button class="demo-tab" onclick="switchTab('combat')">Боевая система</button>
-                    <button class="demo-tab" onclick="switchTab('economy')">Экономика</button>
-                </div>
-                
-                <!-- Farm Tab -->
-                <div id="farm-tab" class="demo-content active">
-                    <div class="farm-demo-controls">
-                        <button class="farm-button" onclick="plantCrop('fire_pepper')">
-                            <i class="fas fa-pepper-hot"></i>
-                            <span>Огненный перец</span>
-                            <small>15 золота</small>
-                        </button>
-                        <button class="farm-button" onclick="plantCrop('frost_carrot')">
-                            <i class="fas fa-carrot"></i>
-                            <span>Морозная морковь</span>
-                            <small>20 золота</small>
-                        </button>
-                        <button class="farm-button" onclick="plantCrop('healing_herb')">
-                            <i class="fas fa-leaf"></i>
-                            <span>Целебная трава</span>
-                            <small>25 золота</small>
-                        </button>
-                        <button class="farm-button" onclick="plantCrop('echo_pumpkin')">
-                            <i class="fas fa-pumpkin"></i>
-                            <span>Эхо-тыква</span>
-                            <small>30 золота + 5 эссенции</small>
-                        </button>
-                        <button class="farm-button" onclick="harvestAll()">
-                            <i class="fas fa-sickle"></i>
-                            <span>Собрать урожай</span>
-                            <small>Все готовые растения</small>
-                        </button>
-                        <button class="farm-button" onclick="summonSpirit()">
-                            <i class="fas fa-sparkles"></i>
-                            <span>Призвать духа</span>
-                            <small>50 эссенции</small>
-                        </button>
-                    </div>
-                    
-                    <div class="demo-message" id="farm-message">
-                        Выберите растение для посадки на пустой участок или соберите готовый урожай.
-                    </div>
-                    
-                    <div style="margin-top: 30px; text-align: center;">
-                        <h4 style="color: var(--accent); margin-bottom: 15px;">Активные духи фермы</h4>
-                        <div id="active-spirits" style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                            <div class="spirit-tag" style="background: rgba(157, 78, 221, 0.2); padding: 8px 15px; border-radius: 20px; border: 1px solid var(--magic);">
-                                <i class="fas fa-wind"></i> Луми-корнегрыз
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Combat Tab -->
-                <div id="combat-tab" class="demo-content">
-                    <div class="combat-arena">
-                        <div class="combatant player-combatant">
-                            <div class="combatant-avatar player-avatar">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <h3>Фермер</h3>
-                            <div class="health-bar">
-                                <div class="health-fill" id="player-health" style="width: 100%"></div>
-                                <div class="health-text" id="player-health-text">100/100</div>
-                            </div>
-                            <p>Уровень: <strong id="player-level">3</strong></p>
-                            <p>Экипировка: Тыквенный доспех, Свекольная булава</p>
-                        </div>
-                        
-                        <div class="combatant enemy-combatant">
-                            <div class="combatant-avatar enemy-avatar">
-                                <i class="fas fa-skull-crossbones"></i>
-                            </div>
-                            <h3>Осколок Минувшего</h3>
-                            <div class="health-bar">
-                                <div class="health-fill" id="enemy-health" style="width: 100%"></div>
-                                <div class="health-text" id="enemy-health-text">75/75</div>
-                            </div>
-                            <p>Тип: Призрак времени</p>
-                            <p>Слабость: Огненные атаки</p>
-                        </div>
-                    </div>
-                    
-                    <div class="combat-actions">
-                        <button class="combat-button" onclick="playerAttack('basic')">
-                            <i class="fas fa-fist-raised"></i> Базовая атака
-                        </button>
-                        <button class="combat-button" onclick="playerAttack('fire')">
-                            <i class="fas fa-fire"></i> Огненный удар
-                        </button>
-                        <button class="combat-button" onclick="playerAttack('heal')">
-                            <i class="fas fa-heart"></i> Лечение травами
-                        </button>
-                        <button class="combat-button" onclick="playerAttack('root')">
-                            <i class="fas fa-vine"></i> Опутывание корнями
-                        </button>
-                        <button class="combat-button" onclick="resetCombat()">
-                            <i class="fas fa-redo"></i> Сбросить бой
-                        </button>
-                    </div>
-                    
-                    <div class="combat-log" id="combat-log">
-                        <div class="log-entry">Бой начался! Вы встретили Осколок Минувшего.</div>
-                    </div>
-                </div>
-                
-                <!-- Economy Tab -->
-                <div id="economy-tab" class="demo-content">
-                    <div style="text-align: center; margin-bottom: 30px;">
-                        <h3 style="color: var(--accent); margin-bottom: 20px;">Три валюты игры</h3>
-                        <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
-                            <div style="text-align: center;">
-                                <div style="font-size: 2rem; color: var(--warning); margin-bottom: 10px;"><i class="fas fa-coins"></i></div>
-                                <h4>Золото</h4>
-                                <p>Продажа обычного урожая</p>
-                                <p>Торговля с поселениями</p>
-                            </div>
-                            <div style="text-align: center;">
-                                <div style="font-size: 2rem; color: var(--magic); margin-bottom: 10px;"><i class="fas fa-gem"></i></div>
-                                <h4>Эссенция Раскола</h4>
-                                <p>Победа над врагами</p>
-                                <p>Магические улучшения</p>
-                            </div>
-                            <div style="text-align: center;">
-                                <div style="font-size: 2rem; color: var(--success); margin-bottom: 10px;"><i class="fas fa-star"></i></div>
-                                <h4>Репутация</h4>
-                                <p>Выполнение заданий</p>
-                                <p>Помощь NPC</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="demo-message success">
-                        <h4>Пример торговли:</h4>
-                        <p>10 единиц Огненного перца → 50 золота</p>
-                        <p>1 Трофей босса "Кристалл времени" → 100 эссенции Раскола</p>
-                        <p>Выполнение задания "Спасение деревни" → +15 репутации с Орденом Очищения</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Code Preview -->
-    <section id="code" class="section">
-        <div class="container">
-            <h2 class="section-title">АРХИТЕКТУРА КОДА</h2>
-            <p style="text-align: center; margin-bottom: 30px;">Игра разрабатывается на Python с использованием Pygame. Модульная структура позволяет легко расширять функциональность.</p>
-            
-            <div class="code-preview">
-                <pre><code>
-<span class="code-keyword">class</span> <span class="code-class">Crop</span>:
-    <span class="code-string">"""Базовый класс растения"""</span>
-    
-    <span class="code-keyword">def</span> <span class="code-function">__init__</span>(<span class="code-keyword">self</span>, name: str, growth_time: float, 
-                 yield_amount: int, crop_type: str):
-        <span class="code-keyword">self</span>.name = name
-        <span class="code-keyword">self</span>.growth_time = growth_time
-        <span class="code-keyword">self</span>.current_growth = <span class="code-number">0.0</span>
-        <span class="code-keyword">self</span>.yield_amount = yield_amount
-        <span class="code-keyword">self</span>.crop_type = crop_type
-        <span class="code-keyword">self</span>.quality = <span class="code-string">"common"</span>
-        <span class="code-keyword">self</span>.element = <span class="code-keyword">None</span>
-        <span class="code-keyword">self</span>.echo_affinity = <span class="code-number">1.0</span>
-    
-    <span class="code-keyword">def</span> <span class="code-function">update</span>(<span class="code-keyword">self</span>, dt: float, season_multiplier: float):
-        <span class="code-string">"""Обновление роста растения"""</span>
-        growth_rate = dt * season_multiplier * <span class="code-keyword">self</span>.echo_affinity
-        <span class="code-keyword">self</span>.current_growth += growth_rate
+            <a href="index.html" class="back-to-game">
+                <i class="fas fa-arrow-left"></i> Вернуться на сайт
+            </a>
+        </aside>
         
-        <span class="code-comment"># Проверка на мутацию при достижении 50% роста</span>
-        <span class="code-keyword">if</span> <span class="code-number">0.5</span> <= <span class="code-keyword">self</span>.current_growth < <span class="code-number">0.51</span>:
-            <span class="code-keyword">self</span>.<span class="code-function">check_mutation</span>()
-    
-    <span class="code-keyword">def</span> <span class="code-function">check_mutation</span>(<span class="code-keyword">self</span>):
-        <span class="code-string">"""Проверка на случайную мутацию"""</span>
-        <span class="code-keyword">if</span> random.random() < <span class="code-number">0.05</span>:  <span class="code-comment">// 5% шанс</span>
-            mutation_type = random.choice([<span class="code-string">"elemental"</span>, 
-                                          <span class="code-string">"giant"</span>, 
-                                          <span class="code-string">"golden"</span>])
-            <span class="code-keyword">self</span>.<span class="code-function">apply_mutation</span>(mutation_type)
-    
-    <span class="code-keyword">def</span> <span class="code-function">apply_mutation</span>(<span class="code-keyword">self</span>, mutation_type: str):
-        <span class="code-string">"""Применение мутации к растению"""</span>
-        <span class="code-keyword">if</span> mutation_type == <span class="code-string">"elemental"</span>:
-            <span class="code-keyword">self</span>.element = random.choice([<span class="code-string">"fire"</span>, 
-                                                <span class="code-string">"frost"</span>, 
-                                                <span class="code-string">"lightning"</span>])
-            <span class="code-keyword">self</span>.name = f<span class="code-string">"{self.element.capitalize()} {self.name}"</span>
-            <span class="code-keyword">self</span>.quality = <span class="code-string">"rare"</span>
-            
-        <span class="code-keyword">elif</span> mutation_type == <span class="code-string">"giant"</span>:
-            <span class="code-keyword">self</span>.yield_amount *= <span class="code-number">2</span>
-            <span class="code-keyword">self</span>.name = f<span class="code-string">"Гигантский {self.name}"</span>
-            <span class="code-keyword">self</span>.quality = <span class="code-string">"uncommon"</span>
-    
-    <span class="code-keyword">def</span> <span class="code-function">harvest</span>(<span class="code-keyword">self</span>):
-        <span class="code-string">"""Сбор урожая"""</span>
-        <span class="code-keyword">if</span> <span class="code-keyword">self</span>.current_growth >= <span class="code-number">1.0</span>:
-            <span class="code-keyword">return</span> CropYield(
-                crop_type=<span class="code-keyword">self</span>.crop_type,
-                amount=<span class="code-keyword">self</span>.yield_amount,
-                quality=<span class="code-keyword">self</span>.quality,
-                element=<span class="code-keyword">self</span>.element
-            )
-        <span class="code-keyword">return</span> <span class="code-keyword">None</span></code></pre>
+        <!-- Main Content -->
+        <main class="wiki-content">
+            <div class="wiki-header">
+                <h1>РУКОВОДСТВО ПО КРАФТУ</h1>
+                <div class="breadcrumb">
+                    <a href="index.html">Главная</a> / 
+                    <a href="#">Wiki</a> / 
+                    <span>Крафтинг</span>
+                </div>
             </div>
             
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="https://github.com/Deeypry" target="_blank" class="cta-button"><i class="fab fa-github"></i> Мой GitHub</a>
-                <a href="https://t.me/xata_deepry" target="_blank" class="cta-button magic"><i class="fab fa-telegram"></i> Telegram Канал</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Руины Эхо-Фермы</h4>
-                    <p>Фермерская RPG с элементами тактических боев и прокачкой. Возродите мир после магического катаклизма.</p>
-                    <div class="social-links">
-                        <a href="https://github.com/Deeypry" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="https://t.me/xata_deepry" target="_blank" class="social-link"><i class="fab fa-telegram"></i></a>
+            <section class="wiki-section">
+                <h2 class="section-title"><i class="fas fa-hammer"></i> Система Верстаков</h2>
+                <p>
+                    В Verdant Weave существует 5 основных типов верстаков для крафта, каждый открывает 
+                    новые возможности по мере прогрессии. Для разблокировки некоторых требуется выполнение 
+                    квестов или победа над боссами.
+                </p>
+                
+                <div class="crafting-tables">
+                    <!-- Верстак -->
+                    <div class="crafting-table">
+                        <div class="table-header">
+                            <div class="table-icon">
+                                <i class="fas fa-hammer"></i>
+                            </div>
+                            <div class="table-info">
+                                <h3>Верстак</h3>
+                                <p>Базовый крафт</p>
+                            </div>
+                        </div>
+                        <ul class="recipes-list">
+                            <li>
+                                <div class="recipe-item">
+                                    <div class="item-icon">🪓</div>
+                                    <span>Деревянный топор</span>
+                                </div>
+                                <div class="recipe-grid">
+                                    <div class="recipe-cell filled">🪵</div>
+                                    <div class="recipe-cell filled">🪵</div>
+                                    <div class="recipe-cell"></div>
+                                    <div class="recipe-cell filled">🪵</div>
+                                    <div class="recipe-cell filled">🪵</div>
+                                    <div class="recipe-cell"></div>
+                                    <div class="recipe-cell"></div>
+                                    <div class="recipe-cell filled">🪵</div>
+                                    <div class="recipe-cell"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="recipe-item">
+                                    <div class="item-icon">⛏️</div>
+                                    <span>Кирка</span>
+                                </div>
+                                <div class="recipe-grid">
+                                    <div class="recipe-cell filled">🪵</div>
+                                    <div class="recipe-cell filled">🪵</div>
+                                    <div class="recipe-cell filled">🪵</div>
+                                    <div class="recipe-cell"></div>
+                                    <div class="recipe-cell filled">🪵</div>
+                                    <div class="recipe-cell"></div>
+                                    <div class="recipe-cell"></div>
+                                    <div class="recipe-cell filled">🪵</div>
+                                    <div class="recipe-cell"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="recipe-item">
+                                    <div class="item-icon">🛏️</div>
+                                    <span>Кровать</span>
+                                </div>
+                                <div class="recipe-grid">
+                                    <div class="recipe-cell filled">🪵</div>
+                                    <div class="recipe-cell filled">🪵</div>
+                                    <div class="recipe-cell filled">🪵</div>
+                                    <div class="recipe-cell filled">🧵</div>
+                                    <div class="recipe-cell filled">🧵</div>
+                                    <div class="recipe-cell filled">🧵</div>
+                                    <div class="recipe-cell"></div>
+                                    <div class="recipe-cell filled">🪵</div>
+                                    <div class="recipe-cell"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Печь -->
+                    <div class="crafting-table">
+                        <div class="table-header">
+                            <div class="table-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <div class="table-info">
+                                <h3>Печь</h3>
+                                <p>Плавка и обжиг</p>
+                            </div>
+                        </div>
+                        <ul class="recipes-list">
+                            <li>
+                                <div class="recipe-item">
+                                    <div class="item-icon">🥄</div>
+                                    <span>Железный слиток</span>
+                                </div>
+                                <div class="recipe-grid">
+                                    <div class="recipe-cell filled">⛰️</div>
+                                    <div class="recipe-cell filled">⛰️</div>
+                                    <div class="recipe-cell filled">⛰️</div>
+                                    <div class="recipe-cell filled">⛰️</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="recipe-item">
+                                    <div class="item-icon">🔶</div>
+                                    <span>Стекло</span>
+                                </div>
+                                <div class="recipe-grid">
+                                    <div class="recipe-cell filled">🏖️</div>
+                                    <div class="recipe-cell filled">🏖️</div>
+                                    <div class="recipe-cell filled">🏖️</div>
+                                    <div class="recipe-cell filled">🏖️</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="recipe-item">
+                                    <div class="item-icon">🧱</div>
+                                    <span>Кирпич</span>
+                                </div>
+                                <div class="recipe-grid">
+                                    <div class="recipe-cell filled">🟤</div>
+                                    <div class="recipe-cell filled">🟤</div>
+                                    <div class="recipe-cell filled">🟤</div>
+                                    <div class="recipe-cell filled">🟤</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Наковальня -->
+                    <div class="crafting-table">
+                        <div class="table-header">
+                            <div class="table-icon">
+                                <i class="fas fa-weight-hanging"></i>
+                            </div>
+                            <div class="table-info">
+                                <h3>Наковальня</h3>
+                                <p>Металлические предметы</p>
+                            </div>
+                        </div>
+                        <ul class="recipes-list">
+                            <li>
+                                <div class="recipe-item">
+                                    <div class="item-icon">⚔️</div>
+                                    <span>Железный меч</span>
+                                </div>
+                                <div class="recipe-grid">
+                                    <div class="recipe-cell"></div>
+                                    <div class="recipe-cell filled">🥄</div>
+                                    <div class="recipe-cell"></div>
+                                    <div class="recipe-cell"></div>
+                                    <div class="recipe-cell filled">🥄</div>
+                                    <div class="recipe-cell"></div>
+                                    <div class="recipe-cell"></div>
+                                    <div class="recipe-cell filled">🪵</div>
+                                    <div class="recipe-cell"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="recipe-item">
+                                    <div class="item-icon">🛡️</div>
+                                    <span>Железная кираса</span>
+                                </div>
+                                <div class="recipe-grid">
+                                    <div class="recipe-cell filled">🥄</div>
+                                    <div class="recipe-cell"></div>
+                                    <div class="recipe-cell filled">🥄</div>
+                                    <div class="recipe-cell filled">🥄</div>
+                                    <div class="recipe-cell filled">🥄</div>
+                                    <div class="recipe-cell filled">🥄</div>
+                                    <div class="recipe-cell filled">🥄</div>
+                                    <div class="recipe-cell filled">🥄</div>
+                                    <div class="recipe-cell filled">🥄</div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                
-                <div class="footer-section">
-                    <h4>Технологии</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Python 3.10+</a></li>
-                        <li><a href="#">Pygame</a></li>
-                        <li><a href="#">Модульная архитектура</a></li>
-                        <li><a href="#">JSON для данных</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Разработка</h4>
-                    <ul class="footer-links">
-                        <li><a href="https://github.com/Deeypry" target="_blank">GitHub Репозиторий</a></li>
-                        <li><a href="https://t.me/xata_deepry" target="_blank">Telegram Канал</a></li>
-                        <li><a href="#">Контрибьюторам</a></li>
-                        <li><a href="#">Лицензия MIT</a></li>
-                    </ul>
-                </div>
-            </div>
+            </section>
             
-            <div class="copyright">
-                &copy; 2023 Руины Эхо-Фермы | Echo Farm Ruins. Игровой прототип.<br>
-                Контакты: GitHub - <a href="https://github.com/Deeypry" style="color: var(--accent);">Deeypry</a> | Telegram - <a href="https://t.me/xata_deepry" style="color: var(--accent);">@xata_deepry</a>
-            </div>
-        </div>
-    </footer>
+            <section class="wiki-section">
+                <h2 class="section-title"><i class="fas fa-flask"></i> Алхимический стол</h2>
+                <p>
+                    Алхимия позволяет создавать зелья, эликсиры и магические предметы. Требует 
+                    изучения рецептов и сбора редких ингредиентов.
+                </p>
+                
+                <table class="wiki-table">
+                    <thead>
+                        <tr>
+                            <th>Зелье</th>
+                            <th>Ингредиенты</th>
+                            <th>Эффект</th>
+                            <th>Длительность</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Зелье лечения</strong></td>
+                            <td>Целебная трава x2, Стеклянная бутылка</td>
+                            <td>+50 здоровья</td>
+                            <td>Мгновенно</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Зелье маны</strong></td>
+                            <td>Синий гриб, Лунный цветок, Стеклянная бутылка</td>
+                            <td>+30 маны</td>
+                            <td>Мгновенно</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Эликсир невидимости</strong></td>
+                            <td>Призрачный гриб, Ночной корень, Пузырек тумана</td>
+                            <td>Невидимость</td>
+                            <td>30 секунд</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Зелье огненного дыхания</strong></td>
+                            <td>Огненный стручок, Драконий зуб, Флакон лавы</td>
+                            <td>Огненное дыхание</td>
+                            <td>60 секунд</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section class="wiki-section">
+                <h2 class="section-title"><i class="fas fa-gem"></i> Кузница Души</h2>
+                <p>
+                    Легендарная станция крафта, доступная только после победы над финальным боссом. 
+                    Позволяет создавать божественное снаряжение и артефакты.
+                </p>
+                
+                <div class="items-grid">
+                    <div class="item-card">
+                        <div class="item-icon-large">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <span class="item-rarity rarity-legendary">Легендарный</span>
+                        <h4>Корона Вечного</h4>
+                        <p>+100 к здоровью, +50 маны, аура восстановления</p>
+                    </div>
+                    
+                    <div class="item-card">
+                        <div class="item-icon-large">
+                            <i class="fas fa-sword"></i>
+                        </div>
+                        <span class="item-rarity rarity-legendary">Легендарный</span>
+                        <h4>Клинок Рассвета</h4>
+                        <p>150 урона, световая аура, шанс ослепления</p>
+                    </div>
+                    
+                    <div class="item-card">
+                        <div class="item-icon-large">
+                            <i class="fas fa-shield"></i>
+                        </div>
+                        <span class="item-rarity rarity-legendary">Легендарный</span>
+                        <h4>Щит Астрала</h4>
+                        <p>90% защиты, отражение заклинаний</p>
+                    </div>
+                    
+                    <div class="item-card">
+                        <div class="item-icon-large">
+                            <i class="fas fa-ring"></i>
+                        </div>
+                        <span class="item-rarity rarity-epic">Эпический</span>
+                        <h4>Кольцо Феникса</h4>
+                        <p>Возрождение после смерти (1 раз в день)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="wiki-section">
+                <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Советы по крафту</h2>
+                <div class="tips">
+                    <h3>🎯 Профессии и навыки</h3>
+                    <ul>
+                        <li><strong>Кузнец</strong> - лучшее металлическое оружие и броня</li>
+                        <li><strong>Алхимик</strong> - мощные зелья и эликсиры</li>
+                        <li><strong>Плотник</strong> - мебель и улучшения дома</li>
+                        <li><strong>Инженер</strong> - механизмы и ловушки</li>
+                        <li><strong>Ювелир</strong> - кольца, амулеты и артефакты</li>
+                    </ul>
+                    
+                    <h3>💎 Редкие ингредиенты</h3>
+                    <ul>
+                        <li><strong>Драконий зуб</strong> - выпадает с драконов в горах</li>
+                        <li><strong>Призрачный гриб</strong> - растет в проклятых лесах ночью</li>
+                        <li><strong>Кристалл души</strong> - добывается в кристальных пещерах</li>
+                        <li><strong>Сердце вулкана</strong> - в лавовых озерах подземелья</li>
+                        <li><strong>Звездная пыль</strong> - падает с метеоритов ночью</li>
+                    </ul>
+                    
+                    <h3>⚡ Быстрые советы</h3>
+                    <ul>
+                        <li>Сначала стройте верстак, затем печь</li>
+                        <li>Собирайте все ресурсы, они могут пригодиться</li>
+                        <li>Изучайте рецепты у деревенских NPC</li>
+                        <li>Улучшайте верстаки для доступа к новым рецептам</li>
+                        <li>Используйте редкие ингредиенты для улучшения качества</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
 
     <script>
-        // ============= Глобальные переменные =============
-        let gameState = {
-            gold: 100,
-            essence: 25,
-            reputation: 10,
-            echoLevel: 1,
+        document.addEventListener('DOMContentLoaded', function() {
+            // Активная ссылка в навигации
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-links a');
             
-            // Ферма
-            plots: [
-                { id: 0, crop: null, growth: 0, ready: false },
-                { id: 1, crop: null, growth: 0, ready: false },
-                { id: 2, crop: null, growth: 0, ready: false },
-                { id: 3, crop: null, growth: 0, ready: false },
-                { id: 4, crop: null, growth: 0, ready: false },
-                { id: 5, crop: null, growth: 0, ready: false },
-                { id: 6, crop: null, growth: 0, ready: false },
-                { id: 7, crop: null, growth: 0, ready: false }
-            ],
+            navLinks.forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if (linkHref === currentPage || (currentPage === '' && linkHref === 'index.html')) {
+                    link.classList.add('active');
+                }
+            });
             
-            cropTypes: {
-                fire_pepper: { name: "Огненный перец", cost: 15, growthTime: 10, yield: 3, element: "fire" },
-                frost_carrot: { name: "Морозная морковь", cost: 20, growthTime: 15, yield: 4, element: "frost" },
-                healing_herb: { name: "Целебная трава", cost: 25, growthTime: 20, yield: 2, element: "life" },
-                echo_pumpkin: { name: "Эхо-тыква", cost: 30, essenceCost: 5, growthTime: 25, yield: 1, element: "echo" }
-            },
-            
-            activeSpirits: [
-                { name: "Луми-корнегрыз", effect: "Ускоряет рост корнеплодов на 20%" }
-            ],
-            
-            // Бой
-            playerHealth: 100,
-            playerMaxHealth: 100,
-            enemyHealth: 75,
-            enemyMaxHealth: 75,
-            combatTurn: "player",
-            combatLog: ["Бой начался! Вы встретили Осколок Минувшего."]
-        };
-        
-        // ============= Инициализация =============
-        document.addEventListener('DOMContentLoaded', () => {
-            initFarmPlots();
-            updateStats();
-            updateFarmMessage("Добро пожаловать на ферму! Посадите свое первое растение.");
-            
-            // Автоматический рост растений
-            setInterval(growCrops, 1000);
-            
-            // Плавная прокрутка
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
+            // Поиск
+            const searchInput = document.querySelector('.search-box input');
+            searchInput.addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                // В реальном проекте здесь был бы поиск по базе данных
+                console.log('Поиск:', searchTerm);
             });
         });
-        
-        // ============= Ферма =============
-        function initFarmPlots() {
-            const farmPlots = document.getElementById('farm-plots');
-            farmPlots.innerHTML = '';
-            
-            gameState.plots.forEach(plot => {
-                const plotElement = document.createElement('div');
-                plotElement.className = 'plot';
-                
-                if (plot.crop) {
-                    plotElement.classList.add(`plot-planted-${plot.id % 3 + 1}`);
-                    if (plot.growth >= 1) {
-                        plotElement.classList.add('plot-ready');
-                    } else if (plot.growth > 0) {
-                        plotElement.classList.add('plot-growing');
-                    }
-                    
-                    const growthPercent = Math.min(100, plot.growth * 100);
-                    
-                    plotElement.innerHTML = `
-                        <div class="plot-content">
-                            <div class="plot-icon">
-                                <i class="fas ${getCropIcon(plot.crop)}"></i>
-                            </div>
-                            <div class="plot-name">${plot.crop}</div>
-                            <div class="plot-progress">
-                                <div class="plot-progress-bar" style="width: ${growthPercent}%"></div>
-                            </div>
-                            ${plot.growth >= 1 ? '<small>Готово!</small>' : ''}
-                        </div>
-                    `;
-                    
-                    plotElement.onclick = () => harvestPlot(plot.id);
-                } else {
-                    plotElement.classList.add('plot-empty');
-                    plotElement.innerHTML = `
-                        <div class="plot-content">
-                            <div class="plot-icon">
-                                <i class="fas fa-plus"></i>
-                            </div>
-                            <div class="plot-name">Пустой участок</div>
-                            <small>Кликните для посадки</small>
-                        </div>
-                    `;
-                    
-                    plotElement.onclick = () => selectPlotForPlanting(plot.id);
-                }
-                
-                farmPlots.appendChild(plotElement);
-            });
-        }
-        
-        function getCropIcon(cropType) {
-            const icons = {
-                'fire_pepper': 'fa-pepper-hot',
-                'frost_carrot': 'fa-carrot',
-                'healing_herb': 'fa-leaf',
-                'echo_pumpkin': 'fa-pumpkin'
-            };
-            return icons[cropType] || 'fa-seedling';
-        }
-        
-        function selectPlotForPlanting(plotId) {
-            updateFarmMessage(`Выберите растение для посадки на участок ${plotId + 1}.`);
-            // В реальной игре здесь будет открыто меню выбора растения
-        }
-        
-        function plantCrop(cropType) {
-            const cropInfo = gameState.cropTypes[cropType];
-            if (!cropInfo) return;
-            
-            // Проверка стоимости
-            if (gameState.gold < cropInfo.cost) {
-                updateFarmMessage(`Недостаточно золота! Нужно ${cropInfo.cost}, есть ${gameState.gold}.`, 'warning');
-                return;
-            }
-            
-            if (cropInfo.essenceCost && gameState.essence < cropInfo.essenceCost) {
-                updateFarmMessage(`Недостаточно эссенции! Нужно ${cropInfo.essenceCost}, есть ${gameState.essence}.`, 'warning');
-                return;
-            }
-            
-            // Поиск пустого участка
-            const emptyPlot = gameState.plots.find(plot => plot.crop === null);
-            if (!emptyPlot) {
-                updateFarmMessage("Нет свободных участков для посадки!", 'warning');
-                return;
-            }
-            
-            // Посадка
-            emptyPlot.crop = cropType;
-            emptyPlot.growth = 0;
-            emptyPlot.ready = false;
-            
-            // Списание стоимости
-            gameState.gold -= cropInfo.cost;
-            if (cropInfo.essenceCost) {
-                gameState.essence -= cropInfo.essenceCost;
-            }
-            
-            updateStats();
-            initFarmPlots();
-            updateFarmMessage(`Посажен ${cropInfo.name}! Растет...`, 'success');
-        }
-        
-        function growCrops() {
-            let anyGrowth = false;
-            
-            gameState.plots.forEach(plot => {
-                if (plot.crop && plot.growth < 1) {
-                    const cropInfo = gameState.cropTypes[plot.crop];
-                    const growthRate = 0.01 * (1 + gameState.echoLevel * 0.1); // Ускоряется с уровнем эхо
-                    
-                    plot.growth += growthRate / (cropInfo.growthTime / 10);
-                    if (plot.growth >= 1) {
-                        plot.growth = 1;
-                        plot.ready = true;
-                        anyGrowth = true;
-                    }
-                }
-            });
-            
-            if (anyGrowth) {
-                initFarmPlots();
-            }
-        }
-        
-        function harvestPlot(plotId) {
-            const plot = gameState.plots[plotId];
-            if (!plot.crop || plot.growth < 1) return;
-            
-            const cropInfo = gameState.cropTypes[plot.crop];
-            const yieldAmount = cropInfo.yield;
-            
-            // Награда за урожай
-            let goldEarned = cropInfo.cost * 2;
-            let essenceEarned = 0;
-            
-            if (cropInfo.element === 'echo') {
-                essenceEarned = 10;
-            }
-            
-            gameState.gold += goldEarned;
-            gameState.essence += essenceEarned;
-            
-            // Шанс повышения уровня эхо
-            if (Math.random() < 0.1) {
-                gameState.echoLevel++;
-                updateFarmMessage(`Уровень эхо повышен до ${gameState.echoLevel}!`, 'success');
-            }
-            
-            // Сброс участка
-            plot.crop = null;
-            plot.growth = 0;
-            plot.ready = false;
-            
-            updateStats();
-            initFarmPlots();
-            updateFarmMessage(`Собран урожай ${cropInfo.name}! Получено ${goldEarned} золота${essenceEarned > 0 ? ` и ${essenceEarned} эссенции` : ''}.`, 'success');
-        }
-        
-        function harvestAll() {
-            let harvested = 0;
-            let totalGold = 0;
-            let totalEssence = 0;
-            
-            gameState.plots.forEach(plot => {
-                if (plot.crop && plot.growth >= 1) {
-                    const cropInfo = gameState.cropTypes[plot.crop];
-                    totalGold += cropInfo.cost * 2;
-                    
-                    if (cropInfo.element === 'echo') {
-                        totalEssence += 10;
-                    }
-                    
-                    plot.crop = null;
-                    plot.growth = 0;
-                    plot.ready = false;
-                    harvested++;
-                }
-            });
-            
-            if (harvested > 0) {
-                gameState.gold += totalGold;
-                gameState.essence += totalEssence;
-                
-                updateStats();
-                initFarmPlots();
-                updateFarmMessage(`Собрано ${harvested} урожаев! Получено ${totalGold} золота и ${totalEssence} эссенции.`, 'success');
-            } else {
-                updateFarmMessage("Нет готовых к сбору растений.", 'warning');
-            }
-        }
-        
-        function summonSpirit() {
-            if (gameState.essence < 50) {
-                updateFarmMessage("Нужно 50 эссенции для призыва духа!", 'warning');
-                return;
-            }
-            
-            gameState.essence -= 50;
-            
-            const spirits = [
-                { name: "Пикси-опылитель", effect: "Увеличивает урожайность на 15%" },
-                { name: "Гном-землекоп", effect: "Ускоряет рост всех растений на 10%" },
-                { name: "Фея-хранительница", effect: "Защищает от вредителей" }
-            ];
-            
-            const newSpirit = spirits[Math.floor(Math.random() * spirits.length)];
-            gameState.activeSpirits.push(newSpirit);
-            
-            updateStats();
-            updateActiveSpirits();
-            updateFarmMessage(`Призван дух: ${newSpirit.name}! ${newSpirit.effect}`, 'success');
-        }
-        
-        // ============= Бой =============
-        function playerAttack(attackType) {
-            if (gameState.combatTurn !== 'player') return;
-            
-            let damage = 0;
-            let message = "";
-            
-            switch (attackType) {
-                case 'basic':
-                    damage = Math.floor(Math.random() * 15) + 10;
-                    message = `Вы атакуете, нанося ${damage} урона!`;
-                    break;
-                case 'fire':
-                    damage = Math.floor(Math.random() * 25) + 15;
-                    message = `Огненный удар наносит ${damage} урона! Эффективно против ледяных врагов!`;
-                    break;
-                case 'heal':
-                    const healAmount = Math.floor(Math.random() * 20) + 10;
-                    gameState.playerHealth = Math.min(gameState.playerMaxHealth, gameState.playerHealth + healAmount);
-                    updatePlayerHealth();
-                    message = `Вы используете целебные травы, восстанавливая ${healAmount} здоровья.`;
-                    break;
-                case 'root':
-                    damage = Math.floor(Math.random() * 10) + 5;
-                    message = `Корни опутывают врага, нанося ${damage} урона и замедляя его.`;
-                    break;
-            }
-            
-            if (damage > 0) {
-                gameState.enemyHealth = Math.max(0, gameState.enemyHealth - damage);
-                updateEnemyHealth();
-            }
-            
-            addCombatLog(message);
-            gameState.combatTurn = 'enemy';
-            
-            // Проверка победы
-            if (gameState.enemyHealth <= 0) {
-                victory();
-                return;
-            }
-            
-            // Ход врага
-            setTimeout(enemyTurn, 1000);
-        }
-        
-        function enemyTurn() {
-            if (gameState.enemyHealth <= 0) return;
-            
-            const attacks = [
-                { name: "Удар времени", damage: () => Math.floor(Math.random() * 12) + 8 },
-                { name: "Замедление", damage: () => Math.floor(Math.random() * 8) + 5 },
-                { name: "Временной разрыв", damage: () => Math.floor(Math.random() * 20) + 10 }
-            ];
-            
-            const attack = attacks[Math.floor(Math.random() * attacks.length)];
-            const damage = attack.damage();
-            
-            gameState.playerHealth = Math.max(0, gameState.playerHealth - damage);
-            updatePlayerHealth();
-            
-            addCombatLog(`${attack.name} врага наносит ${damage} урона!`);
-            gameState.combatTurn = 'player';
-            
-            // Проверка поражения
-            if (gameState.playerHealth <= 0) {
-                defeat();
-            }
-        }
-        
-        function victory() {
-            const goldReward = Math.floor(Math.random() * 50) + 25;
-            const essenceReward = Math.floor(Math.random() * 10) + 5;
-            
-            gameState.gold += goldReward;
-            gameState.essence += essenceReward;
-            gameState.reputation += 5;
-            
-            updateStats();
-            addCombatLog(`ПОБЕДА! Получено ${goldReward} золота, ${essenceReward} эссенции и 5 репутации.`);
-            addCombatLog("Нажмите 'Сбросить бой' для начала нового сражения.");
-        }
-        
-        function defeat() {
-            addCombatLog("ПОРАЖЕНИЕ... Вы теряете сознание.");
-            addCombatLog("Нажмите 'Сбросить бой' чтобы попробовать снова.");
-        }
-        
-        function resetCombat() {
-            gameState.playerHealth = gameState.playerMaxHealth;
-            gameState.enemyHealth = gameState.enemyMaxHealth;
-            gameState.combatTurn = 'player';
-            gameState.combatLog = ["Бой начался! Вы встретили Осколок Минувшего."];
-            
-            updatePlayerHealth();
-            updateEnemyHealth();
-            updateCombatLog();
-        }
-        
-        // ============= Вспомогательные функции =============
-        function updateStats() {
-            document.getElementById('gold-amount').textContent = gameState.gold;
-            document.getElementById('essence-amount').textContent = gameState.essence;
-            document.getElementById('reputation-amount').textContent = gameState.reputation;
-            document.getElementById('echo-level').textContent = gameState.echoLevel;
-            
-            // Обновление цветов статистики
-            updateStatColor('gold-amount', gameState.gold, 50, 20);
-            updateStatColor('essence-amount', gameState.essence, 30, 10);
-        }
-        
-        function updateStatColor(elementId, value, warningThreshold, dangerThreshold) {
-            const element = document.getElementById(elementId);
-            element.classList.remove('stat-normal', 'stat-warning', 'stat-danger', 'stat-magic');
-            
-            if (elementId.includes('essence')) {
-                element.classList.add('stat-magic');
-            } else if (value < dangerThreshold) {
-                element.classList.add('stat-danger');
-            } else if (value < warningThreshold) {
-                element.classList.add('stat-warning');
-            } else {
-                element.classList.add('stat-normal');
-            }
-        }
-        
-        function updateFarmMessage(message, type = 'normal') {
-            const messageElement = document.getElementById('farm-message');
-            messageElement.textContent = message;
-            messageElement.className = 'demo-message ' + type;
-        }
-        
-        function updateActiveSpirits() {
-            const spiritsContainer = document.getElementById('active-spirits');
-            spiritsContainer.innerHTML = '';
-            
-            gameState.activeSpirits.forEach(spirit => {
-                const spiritElement = document.createElement('div');
-                spiritElement.className = 'spirit-tag';
-                spiritElement.style.cssText = 'background: rgba(157, 78, 221, 0.2); padding: 8px 15px; border-radius: 20px; border: 1px solid var(--magic); margin: 5px;';
-                spiritElement.innerHTML = `<i class="fas fa-sparkles"></i> ${spirit.name}`;
-                spiritsContainer.appendChild(spiritElement);
-            });
-        }
-        
-        function updatePlayerHealth() {
-            const healthPercent = (gameState.playerHealth / gameState.playerMaxHealth) * 100;
-            document.getElementById('player-health').style.width = `${healthPercent}%`;
-            document.getElementById('player-health-text').textContent = 
-                `${gameState.playerHealth}/${gameState.playerMaxHealth}`;
-        }
-        
-        function updateEnemyHealth() {
-            const healthPercent = (gameState.enemyHealth / gameState.enemyMaxHealth) * 100;
-            document.getElementById('enemy-health').style.width = `${healthPercent}%`;
-            document.getElementById('enemy-health-text').textContent = 
-                `${gameState.enemyHealth}/${gameState.enemyMaxHealth}`;
-        }
-        
-        function addCombatLog(message) {
-            gameState.combatLog.push(message);
-            if (gameState.combatLog.length > 10) {
-                gameState.combatLog.shift();
-            }
-            updateCombatLog();
-        }
-        
-        function updateCombatLog() {
-            const logContainer = document.getElementById('combat-log');
-            logContainer.innerHTML = '';
-            
-            gameState.combatLog.forEach(entry => {
-                const logEntry = document.createElement('div');
-                logEntry.className = 'log-entry';
-                logEntry.textContent = entry;
-                logContainer.appendChild(logEntry);
-            });
-            
-            logContainer.scrollTop = logContainer.scrollHeight;
-        }
-        
-        function switchTab(tabName) {
-            // Скрыть все вкладки
-            document.querySelectorAll('.demo-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            document.querySelectorAll('.demo-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Показать выбранную вкладку
-            document.getElementById(`${tabName}-tab`).classList.add('active');
-            document.querySelector(`.demo-tab[onclick="switchTab('${tabName}')"]`).classList.add('active');
-            
-            if (tabName === 'combat') {
-                resetCombat();
-            }
-        }
-        
-        function scrollToDemo() {
-            document.getElementById('demo').scrollIntoView({ behavior: 'smooth' });
-            switchTab('farm');
-        }
-        
-        function scrollToCombat() {
-            document.getElementById('demo').scrollIntoView({ behavior: 'smooth' });
-            switchTab('combat');
-        }
-        
-        function scrollToCode() {
-            document.getElementById('code').scrollIntoView({ behavior: 'smooth' });
-        }
     </script>
 </body>
 </html>
