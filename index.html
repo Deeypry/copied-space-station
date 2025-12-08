@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Station 14: Crisis Manager</title>
+    <title>Руины Эхо-Фермы | Echo Farm Ruins</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2d1b69;
-            --secondary: #8a4fff;
-            --accent: #c084fc;
-            --danger: #ff6b9d;
-            --warning: #ffb347;
-            --success: #7ce7a0;
-            --dark: #1a103d;
-            --light: #f0e6ff;
-            --space: #0f0825;
-            --neon: #bc8afb;
+            --primary: #1a472a;
+            --secondary: #2a623d;
+            --accent: #5d9c47;
+            --magic: #9d4edd;
+            --danger: #c81d25;
+            --warning: #ff9e00;
+            --success: #38b000;
+            --dark: #0d1b1e;
+            --earth: #8b4513;
+            --light: #f1faee;
+            --shadow: rgba(0, 0, 0, 0.5);
         }
         
         * {
@@ -29,18 +30,19 @@
         }
         
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--space);
+            font-family: 'Raleway', sans-serif;
+            background-color: var(--dark);
             color: var(--light);
             line-height: 1.6;
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 20% 80%, rgba(138, 79, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(192, 132, 252, 0.1) 0%, transparent 50%);
+                radial-gradient(circle at 10% 20%, rgba(26, 71, 42, 0.3) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(157, 78, 221, 0.2) 0%, transparent 40%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%231a472a" opacity="0.1" d="M50,0 L60,40 L100,50 L60,60 L50,100 L40,60 L0,50 L40,40 Z"/></svg>');
         }
         
         h1, h2, h3, h4 {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Cinzel', serif;
             font-weight: 700;
         }
         
@@ -56,7 +58,7 @@
             padding: 20px 0;
             position: relative;
             overflow: hidden;
-            border-bottom: 2px solid var(--secondary);
+            border-bottom: 2px solid var(--accent);
         }
         
         header::before {
@@ -67,8 +69,8 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 30%, var(--accent) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, var(--secondary) 0%, transparent 50%);
+                radial-gradient(circle at 20% 30%, var(--magic) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, var(--accent) 0%, transparent 50%);
             opacity: 0.15;
         }
         
@@ -83,14 +85,14 @@
         .logo i {
             color: var(--accent);
             font-size: 2.5rem;
-            text-shadow: 0 0 10px var(--neon);
+            text-shadow: 0 0 10px var(--success);
         }
         
         .logo-text {
-            background: linear-gradient(90deg, var(--accent), var(--secondary));
+            background: linear-gradient(90deg, var(--accent), var(--magic));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(192, 132, 252, 0.3);
+            text-shadow: 0 0 20px rgba(93, 156, 71, 0.3);
         }
         
         .tagline {
@@ -98,23 +100,6 @@
             opacity: 0.9;
             max-width: 800px;
             margin-bottom: 20px;
-        }
-        
-        .countdown {
-            background-color: rgba(45, 27, 105, 0.5);
-            border-radius: 10px;
-            padding: 15px;
-            display: inline-block;
-            margin-top: 10px;
-            border: 1px solid var(--secondary);
-            box-shadow: 0 0 15px rgba(138, 79, 255, 0.3);
-        }
-        
-        .countdown span {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.5rem;
-            color: var(--accent);
-            text-shadow: 0 0 10px var(--neon);
         }
         
         /* Hero Section */
@@ -132,8 +117,8 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 10% 20%, rgba(138, 79, 255, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(192, 132, 252, 0.1) 0%, transparent 40%);
+                radial-gradient(circle at 10% 20%, rgba(42, 98, 61, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(157, 78, 221, 0.1) 0%, transparent 40%);
             pointer-events: none;
         }
         
@@ -154,10 +139,10 @@
         .hero-text h1 {
             font-size: 3rem;
             margin-bottom: 20px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            background: linear-gradient(90deg, var(--accent), var(--magic));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(138, 79, 255, 0.5);
+            text-shadow: 0 0 30px rgba(93, 156, 71, 0.5);
         }
         
         .hero-text p {
@@ -173,68 +158,71 @@
             padding: 15px 30px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 1.1rem;
             transition: all 0.3s;
             margin-right: 15px;
             margin-bottom: 15px;
             border: none;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(138, 79, 255, 0.4);
+            box-shadow: 0 5px 15px rgba(42, 98, 61, 0.4);
         }
         
         .cta-button:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(138, 79, 255, 0.6);
+            box-shadow: 0 10px 25px rgba(42, 98, 61, 0.6);
             background: linear-gradient(90deg, var(--accent), var(--secondary));
         }
         
-        .cta-button.secondary {
-            background: transparent;
-            border: 2px solid var(--secondary);
-            box-shadow: 0 5px 15px rgba(138, 79, 255, 0.2);
+        .cta-button.magic {
+            background: linear-gradient(90deg, var(--magic), #7b2cbf);
         }
         
-        .cta-button.secondary:hover {
-            background: rgba(138, 79, 255, 0.1);
+        .cta-button.magic:hover {
+            background: linear-gradient(90deg, #7b2cbf, var(--magic));
+            box-shadow: 0 10px 25px rgba(157, 78, 221, 0.6);
         }
         
-        .hero-visual {
+        .farm-visual {
             flex: 1;
             min-width: 300px;
             position: relative;
         }
         
-        .station-visual {
-            background: rgba(45, 27, 105, 0.3);
+        .farm-grid {
+            background: rgba(26, 71, 42, 0.3);
             border-radius: 15px;
             padding: 20px;
-            border: 1px solid var(--secondary);
+            border: 1px solid var(--accent);
             box-shadow: 
                 0 10px 30px rgba(0, 0, 0, 0.5),
-                inset 0 0 20px rgba(138, 79, 255, 0.1);
+                inset 0 0 20px rgba(93, 156, 71, 0.1);
             backdrop-filter: blur(10px);
         }
         
-        .station-grid {
+        .farm-plot-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
             margin-bottom: 20px;
         }
         
-        .grid-cell {
-            background: rgba(138, 79, 255, 0.1);
+        .plot {
+            background: rgba(139, 69, 19, 0.3);
             border-radius: 8px;
-            padding: 15px;
+            padding: 20px 10px;
             text-align: center;
             transition: all 0.3s;
-            border: 1px solid rgba(138, 79, 255, 0.3);
+            border: 2px solid rgba(139, 69, 19, 0.5);
             position: relative;
             overflow: hidden;
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         
-        .grid-cell::before {
+        .plot::before {
             content: '';
             position: absolute;
             top: 0;
@@ -245,70 +233,72 @@
             transition: left 0.5s;
         }
         
-        .grid-cell:hover::before {
+        .plot:hover::before {
             left: 100%;
         }
         
-        .grid-cell:hover {
+        .plot:hover {
             transform: translateY(-5px);
             border-color: var(--accent);
-            box-shadow: 0 5px 15px rgba(192, 132, 252, 0.4);
+            box-shadow: 0 5px 15px rgba(93, 156, 71, 0.4);
         }
         
-        .cell-normal {
-            background: rgba(124, 231, 160, 0.15);
-            border-color: rgba(124, 231, 160, 0.4);
+        .plot-empty {
+            background: rgba(139, 69, 19, 0.2);
+            border-style: dashed;
         }
         
-        .cell-warning {
-            background: rgba(255, 179, 71, 0.15);
-            border-color: rgba(255, 179, 71, 0.4);
+        .plot-planted-1 { 
+            background: rgba(93, 156, 71, 0.2); 
+            border-color: var(--success);
+        }
+        .plot-planted-2 { 
+            background: rgba(255, 158, 0, 0.2); 
+            border-color: var(--warning);
+        }
+        .plot-planted-3 { 
+            background: rgba(157, 78, 221, 0.2); 
+            border-color: var(--magic);
         }
         
-        .cell-danger {
-            background: rgba(255, 107, 157, 0.15);
-            border-color: rgba(255, 107, 157, 0.4);
+        .plot-growing {
+            animation: pulse 2s infinite;
         }
         
-        .cell-leak {
-            background: rgba(138, 79, 255, 0.15);
-            border-color: rgba(138, 79, 255, 0.4);
+        .plot-ready {
+            animation: glow 3s infinite;
+            border-color: var(--success) !important;
         }
         
-        .status-indicators {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
+        .plot-content {
+            position: relative;
+            z-index: 2;
         }
         
-        .status-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .plot-icon {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
         }
         
-        .status-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            box-shadow: 0 0 8px currentColor;
+        .plot-name {
+            font-size: 0.8rem;
+            opacity: 0.9;
         }
         
-        .dot-normal { 
-            background-color: var(--success); 
-            box-shadow: 0 0 10px var(--success);
+        .plot-progress {
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            margin-top: 8px;
+            overflow: hidden;
         }
-        .dot-warning { 
-            background-color: var(--warning);
-            box-shadow: 0 0 10px var(--warning);
-        }
-        .dot-danger { 
-            background-color: var(--danger);
-            box-shadow: 0 0 10px var(--danger);
-        }
-        .dot-leak { 
-            background-color: var(--secondary);
-            box-shadow: 0 0 10px var(--secondary);
+        
+        .plot-progress-bar {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.5s;
         }
         
         /* Sections */
@@ -322,7 +312,7 @@
             margin-bottom: 50px;
             color: var(--accent);
             position: relative;
-            text-shadow: 0 0 20px rgba(192, 132, 252, 0.3);
+            text-shadow: 0 0 20px rgba(93, 156, 71, 0.3);
         }
         
         .section-title::after {
@@ -333,7 +323,7 @@
             transform: translateX(-50%);
             width: 100px;
             height: 4px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            background: linear-gradient(90deg, var(--accent), var(--magic));
             border-radius: 2px;
             box-shadow: 0 0 10px var(--accent);
         }
@@ -346,10 +336,10 @@
         }
         
         .gameplay-card {
-            background: rgba(45, 27, 105, 0.3);
+            background: rgba(26, 71, 42, 0.3);
             border-radius: 15px;
             padding: 30px;
-            border: 1px solid rgba(138, 79, 255, 0.2);
+            border: 1px solid rgba(93, 156, 71, 0.2);
             transition: all 0.3s;
             backdrop-filter: blur(10px);
         }
@@ -357,29 +347,29 @@
         .gameplay-card:hover {
             border-color: var(--accent);
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(138, 79, 255, 0.2);
+            box-shadow: 0 15px 30px rgba(93, 156, 71, 0.2);
         }
         
         .gameplay-card i {
             font-size: 3rem;
             margin-bottom: 20px;
             color: var(--accent);
-            text-shadow: 0 0 15px var(--neon);
+            text-shadow: 0 0 15px var(--success);
         }
         
         .gameplay-card h3 {
             font-size: 1.5rem;
             margin-bottom: 15px;
-            color: var(--secondary);
+            color: var(--success);
         }
         
         /* Features Section */
         .features {
             background: 
-                radial-gradient(circle at 70% 30%, rgba(138, 79, 255, 0.1) 0%, transparent 70%),
-                radial-gradient(circle at 30% 70%, rgba(192, 132, 252, 0.1) 0%, transparent 70%);
-            border-top: 1px solid rgba(138, 79, 255, 0.2);
-            border-bottom: 1px solid rgba(138, 79, 255, 0.2);
+                radial-gradient(circle at 70% 30%, rgba(42, 98, 61, 0.1) 0%, transparent 70%),
+                radial-gradient(circle at 30% 70%, rgba(157, 78, 221, 0.1) 0%, transparent 70%);
+            border-top: 1px solid rgba(93, 156, 71, 0.2);
+            border-bottom: 1px solid rgba(93, 156, 71, 0.2);
         }
         
         .features-grid {
@@ -391,9 +381,9 @@
         .feature {
             text-align: center;
             padding: 25px;
-            background: rgba(45, 27, 105, 0.2);
+            background: rgba(26, 71, 42, 0.2);
             border-radius: 10px;
-            border: 1px solid rgba(138, 79, 255, 0.1);
+            border: 1px solid rgba(93, 156, 71, 0.1);
             transition: all 0.3s;
         }
         
@@ -405,13 +395,13 @@
         .feature-icon {
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            background: linear-gradient(135deg, var(--accent), var(--magic));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 20px;
-            box-shadow: 0 0 20px var(--secondary);
+            box-shadow: 0 0 20px var(--accent);
         }
         
         .feature-icon i {
@@ -426,43 +416,95 @@
         
         /* Demo Section */
         .demo-container {
-            background: rgba(45, 27, 105, 0.3);
+            background: rgba(26, 71, 42, 0.3);
             border-radius: 15px;
             padding: 30px;
-            border: 1px solid var(--secondary);
+            border: 1px solid var(--accent);
             margin-top: 40px;
             backdrop-filter: blur(10px);
             box-shadow: 
                 0 10px 30px rgba(0, 0, 0, 0.3),
-                inset 0 0 20px rgba(138, 79, 255, 0.1);
+                inset 0 0 20px rgba(93, 156, 71, 0.1);
         }
         
-        .demo-controls {
+        .demo-tabs {
             display: flex;
-            flex-wrap: wrap;
+            border-bottom: 2px solid rgba(93, 156, 71, 0.3);
+            margin-bottom: 30px;
+        }
+        
+        .demo-tab {
+            padding: 15px 30px;
+            background: transparent;
+            border: none;
+            color: var(--light);
+            cursor: pointer;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .demo-tab.active {
+            color: var(--accent);
+        }
+        
+        .demo-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+        }
+        
+        .demo-tab:hover:not(.active) {
+            color: var(--success);
+        }
+        
+        .demo-content {
+            display: none;
+        }
+        
+        .demo-content.active {
+            display: block;
+        }
+        
+        .farm-demo-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
             margin-bottom: 30px;
         }
         
-        .demo-button {
-            background: linear-gradient(90deg, rgba(138, 79, 255, 0.3), rgba(192, 132, 252, 0.3));
-            border: 1px solid rgba(138, 79, 255, 0.4);
+        .farm-button {
+            background: linear-gradient(90deg, rgba(93, 156, 71, 0.3), rgba(139, 69, 19, 0.3));
+            border: 1px solid rgba(93, 156, 71, 0.4);
             color: white;
-            padding: 12px 25px;
+            padding: 15px;
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Raleway', sans-serif;
             font-weight: 500;
-            flex: 1;
-            min-width: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
         }
         
-        .demo-button:hover {
-            background: linear-gradient(90deg, rgba(138, 79, 255, 0.5), rgba(192, 132, 252, 0.5));
+        .farm-button:hover {
+            background: linear-gradient(90deg, rgba(93, 156, 71, 0.5), rgba(139, 69, 19, 0.5));
             border-color: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(138, 79, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(93, 156, 71, 0.3);
+        }
+        
+        .farm-button i {
+            font-size: 1.5rem;
         }
         
         .demo-stats {
@@ -473,11 +515,11 @@
         }
         
         .stat {
-            background: rgba(45, 27, 105, 0.4);
+            background: rgba(26, 71, 42, 0.4);
             border-radius: 10px;
             padding: 20px;
             text-align: center;
-            border: 1px solid rgba(138, 79, 255, 0.2);
+            border: 1px solid rgba(93, 156, 71, 0.2);
             transition: all 0.3s;
         }
         
@@ -488,7 +530,7 @@
         
         .stat-value {
             font-size: 2.2rem;
-            font-family: 'Orbitron', monospace;
+            font-family: 'Cinzel', serif;
             margin-bottom: 5px;
             text-shadow: 0 0 10px currentColor;
         }
@@ -496,47 +538,170 @@
         .stat-normal { color: var(--success); }
         .stat-warning { color: var(--warning); }
         .stat-danger { color: var(--danger); }
+        .stat-magic { color: var(--magic); }
         
-        .message-normal, .message-success, .message-warning, .message-danger {
+        .demo-message {
             padding: 15px;
             border-radius: 8px;
             margin-top: 20px;
             font-weight: 500;
+            background: rgba(26, 71, 42, 0.2);
+            border-left: 4px solid var(--accent);
         }
         
-        .message-normal {
-            background: rgba(138, 79, 255, 0.1);
-            border-left: 4px solid var(--secondary);
+        .demo-message.success {
+            background: rgba(56, 176, 0, 0.1);
+            border-left-color: var(--success);
         }
         
-        .message-success {
-            background: rgba(124, 231, 160, 0.1);
-            border-left: 4px solid var(--success);
+        .demo-message.warning {
+            background: rgba(255, 158, 0, 0.1);
+            border-left-color: var(--warning);
         }
         
-        .message-warning {
-            background: rgba(255, 179, 71, 0.1);
-            border-left: 4px solid var(--warning);
+        .demo-message.danger {
+            background: rgba(200, 29, 37, 0.1);
+            border-left-color: var(--danger);
         }
         
-        .message-danger {
-            background: rgba(255, 107, 157, 0.1);
-            border-left: 4px solid var(--danger);
+        /* Combat Demo */
+        .combat-arena {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            margin: 30px 0;
+        }
+        
+        .combatant {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+        }
+        
+        .player-combatant {
+            background: rgba(26, 71, 42, 0.3);
+            border: 2px solid var(--accent);
+        }
+        
+        .enemy-combatant {
+            background: rgba(200, 29, 37, 0.1);
+            border: 2px solid var(--danger);
+        }
+        
+        .combatant-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: 0 0 20px currentColor;
+        }
+        
+        .player-avatar {
+            background: rgba(93, 156, 71, 0.3);
+            color: var(--accent);
+            border: 3px solid var(--accent);
+        }
+        
+        .enemy-avatar {
+            background: rgba(200, 29, 37, 0.3);
+            color: var(--danger);
+            border: 3px solid var(--danger);
+        }
+        
+        .health-bar {
+            height: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            margin: 10px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .health-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--danger), var(--warning), var(--success));
+            border-radius: 10px;
+            width: 100%;
+            transition: width 0.5s;
+        }
+        
+        .health-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px black;
+        }
+        
+        .combat-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .combat-button {
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(93, 156, 71, 0.4);
+            background: rgba(26, 71, 42, 0.3);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .combat-button:hover:not(:disabled) {
+            background: rgba(93, 156, 71, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        .combat-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .combat-log {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .log-entry {
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .log-entry:last-child {
+            border-bottom: none;
         }
         
         /* Code Preview */
         .code-preview {
-            background: #1a103d;
+            background: #0d1b1e;
             border-radius: 10px;
             padding: 20px;
             margin-top: 40px;
             overflow-x: auto;
-            border: 1px solid var(--secondary);
+            border: 1px solid var(--accent);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
         
         .code-preview pre {
-            color: #f0e6ff;
+            color: #f1faee;
             font-family: 'Courier New', monospace;
             font-size: 0.9rem;
             line-height: 1.5;
@@ -545,15 +710,16 @@
         .code-keyword { color: #ff79c6; }
         .code-function { color: #7ce7a0; }
         .code-string { color: #ffb347; }
-        .code-comment { color: #8a4fff; }
-        .code-class { color: #c084fc; }
+        .code-comment { color: #5d9c47; }
+        .code-class { color: #9d4edd; }
+        .code-number { color: #bd93f9; }
         
         /* Footer */
         footer {
             background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
             padding: 60px 0 30px;
             text-align: center;
-            border-top: 2px solid var(--secondary);
+            border-top: 2px solid var(--accent);
         }
         
         .footer-content {
@@ -613,13 +779,13 @@
             color: white;
             text-decoration: none;
             transition: all 0.3s;
-            border: 1px solid rgba(138, 79, 255, 0.3);
+            border: 1px solid rgba(93, 156, 71, 0.3);
         }
         
         .social-link:hover {
             background: var(--accent);
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(192, 132, 252, 0.4);
+            box-shadow: 0 5px 15px rgba(93, 156, 71, 0.4);
             border-color: var(--accent);
         }
         
@@ -628,6 +794,43 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        
+        .float {
+            animation: float 5s infinite ease-in-out;
+        }
+        
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px var(--success); }
+            50% { box-shadow: 0 0 20px var(--accent); }
+            100% { box-shadow: 0 0 10px var(--success); }
+        }
+        
+        .glow {
+            animation: glow 3s infinite;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+        
+        .shake {
+            animation: shake 0.5s;
         }
         
         /* Responsive */
@@ -640,18 +843,18 @@
                 font-size: 2rem;
             }
             
-            .station-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .farm-plot-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
             
-            .demo-button {
-                min-width: 100%;
+            .combat-arena {
+                flex-direction: column;
             }
         }
         
         @media (max-width: 480px) {
-            .station-grid {
-                grid-template-columns: 1fr;
+            .farm-plot-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
             
             .hero-text h1 {
@@ -666,37 +869,6 @@
             }
         }
         
-        /* Animations */
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; }
-            100% { opacity: 1; }
-        }
-        
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0); }
-        }
-        
-        .float {
-            animation: float 5s infinite ease-in-out;
-        }
-        
-        @keyframes glow {
-            0% { box-shadow: 0 0 10px var(--secondary); }
-            50% { box-shadow: 0 0 20px var(--accent); }
-            100% { box-shadow: 0 0 10px var(--secondary); }
-        }
-        
-        .glow {
-            animation: glow 3s infinite;
-        }
-        
         /* Scrollbar */
         ::-webkit-scrollbar {
             width: 10px;
@@ -707,12 +879,12 @@
         }
         
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(var(--secondary), var(--accent));
+            background: linear-gradient(var(--accent), var(--magic));
             border-radius: 5px;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(var(--accent), var(--secondary));
+            background: linear-gradient(var(--magic), var(--accent));
         }
     </style>
 </head>
@@ -721,13 +893,10 @@
     <header>
         <div class="container">
             <div class="logo">
-                <i class="fas fa-satellite-dish"></i>
-                <span class="logo-text">SS14: Crisis Manager</span>
+                <i class="fas fa-leaf"></i>
+                <span class="logo-text">Руины Эхо-Фермы</span>
             </div>
-            <p class="tagline">Управляйте космической станцией в реальном времени. 10 минут на спасение экипажа и систем жизнеобеспечения. Успеете?</p>
-            <div class="countdown glow">
-                Время до критического отказа: <span id="time-counter">10:00</span>
-            </div>
+            <p class="tagline">Выращивайте магические культуры, сражайтесь с порождениями Раскола и восстановите мир в этой уникальной фермерской RPG.</p>
         </div>
     </header>
 
@@ -735,65 +904,37 @@
     <section class="hero">
         <div class="container hero-content">
             <div class="hero-text">
-                <h1>КРИЗИС НА ОРБИТЕ</h1>
-                <p>Вам поручено управление станцией SS14. За 10 минут реального времени вы должны поддерживать атмосферу, энергоснабжение и целостность конструкции, сталкиваясь со случайными катастрофами.</p>
-                <p>Каждое решение имеет последствия. Каждая секунда на счету.</p>
+                <h1>ВОЗРОДИ МИР ИЗ ПЕПЛА</h1>
+                <p>После магического катаклизма мир погрузился в хаос. Как хранитель последнего Оазиса, вы должны выращивать эхо-культуры, сражаться с искаженными тварями и восстановить "Сердце Земли".</p>
+                <p>Каждое растение — это история. Каждый враг — это возможность.</p>
                 
-                <button onclick="scrollToDemo()" class="cta-button"><i class="fas fa-play-circle"></i> Запустить демо</button>
-                <button onclick="scrollToCode()" class="cta-button secondary"><i class="fas fa-code"></i> Исходный код</button>
+                <button onclick="scrollToDemo()" class="cta-button"><i class="fas fa-seedling"></i> Демо фермы</button>
+                <button onclick="scrollToCombat()" class="cta-button magic"><i class="fas fa-fist-raised"></i> Демо боя</button>
+                <button onclick="scrollToCode()" class="cta-button"><i class="fas fa-code"></i> Архитектура кода</button>
             </div>
             
-            <div class="hero-visual">
-                <div class="station-visual float">
-                    <div class="station-grid">
-                        <div class="grid-cell cell-normal">
-                            <h4>Мостик</h4>
-                            <p>O₂: 98%</p>
-                            <p>Давление: 101 кПа</p>
-                        </div>
-                        <div class="grid-cell cell-warning">
-                            <h4>Инженерия</h4>
-                            <p>O₂: 72%</p>
-                            <p>Температура: 45°C</p>
-                        </div>
-                        <div class="grid-cell cell-danger">
-                            <h4>Медбей</h4>
-                            <p>O₂: 18%</p>
-                            <p>CO₂: 4.2%</p>
-                        </div>
-                        <div class="grid-cell cell-normal">
-                            <h4>Карго</h4>
-                            <p>O₂: 95%</p>
-                            <p>Давление: 99 кПа</p>
-                        </div>
-                        <div class="grid-cell cell-leak">
-                            <h4>Дормиторий</h4>
-                            <p>УТЕЧКА!</p>
-                            <p>Давление: 42 кПа</p>
-                        </div>
-                        <div class="grid-cell cell-normal">
-                            <h4>Оружейная</h4>
-                            <p>O₂: 96%</p>
-                            <p>Целостность: 100%</p>
-                        </div>
+            <div class="farm-visual">
+                <div class="farm-grid float">
+                    <div class="farm-plot-grid" id="farm-plots">
+                        <!-- Plots will be generated by JavaScript -->
                     </div>
                     
-                    <div class="status-indicators">
-                        <div class="status-item">
-                            <div class="status-dot dot-normal"></div>
-                            <span>Норма</span>
+                    <div class="demo-stats">
+                        <div class="stat">
+                            <div class="stat-value stat-normal" id="echo-level">1</div>
+                            <div class="stat-label">Уровень Эхо</div>
                         </div>
-                        <div class="status-item">
-                            <div class="status-dot dot-warning"></div>
-                            <span>Предупреждение</span>
+                        <div class="stat">
+                            <div class="stat-value stat-normal" id="gold-amount">100</div>
+                            <div class="stat-label">Золото</div>
                         </div>
-                        <div class="status-item">
-                            <div class="status-dot dot-danger"></div>
-                            <span>Опасность</span>
+                        <div class="stat">
+                            <div class="stat-value stat-magic" id="essence-amount">25</div>
+                            <div class="stat-label">Эссенция Раскола</div>
                         </div>
-                        <div class="status-item">
-                            <div class="status-dot dot-leak"></div>
-                            <span>Утечка</span>
+                        <div class="stat">
+                            <div class="stat-value stat-normal" id="reputation-amount">10</div>
+                            <div class="stat-label">Репутация</div>
                         </div>
                     </div>
                 </div>
@@ -804,25 +945,25 @@
     <!-- Gameplay Section -->
     <section class="section">
         <div class="container">
-            <h2 class="section-title">ИГРОВОЙ ПРОЦЕСС</h2>
+            <h2 class="section-title">ТРИ СТОЛПА ИГРЫ</h2>
             
             <div class="gameplay-cards">
                 <div class="gameplay-card">
-                    <i class="fas fa-wind"></i>
-                    <h3>Атмосферный контроль</h3>
-                    <p>Поддерживайте уровень кислорода, давление и температуру в безопасных пределах. Управляйте системами вентиляции и скрубберами для очистки воздуха от CO₂.</p>
+                    <i class="fas fa-seedling"></i>
+                    <h3>Фермерство с историей</h3>
+                    <p>Растения питаются "эхо-памятью" почвы. Выращивайте культуры с уникальными свойствами, приручайте духов природы и мутируйте растения для получения редких ресурсов.</p>
                 </div>
                 
                 <div class="gameplay-card">
-                    <i class="fas fa-bolt"></i>
-                    <h3>Энергосистема</h3>
-                    <p>Балансируйте производство и потребление энергии. Запускайте дополнительные генераторы при перегрузках, управляйте распределением энергии между системами.</p>
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Тактические сражения</h3>
+                    <p>Снаряжение зависит от вашего урожая. Тыквенные доспехи, свекольные булавы, луковые луки — каждое оружие имеет уникальные свойства и взаимодействия со стихиями.</p>
                 </div>
                 
                 <div class="gameplay-card">
-                    <i class="fas fa-hard-hat"></i>
-                    <h3>Ремонт и обслуживание</h3>
-                    <p>Устраняйте утечки, тушите пожары, ремонтируйте повреждённые системы. Каждая неисправность снижает шансы на выживание станции.</p>
+                    <i class="fas fa-coins"></i>
+                    <h3>Многослойная экономика</h3>
+                    <p>Три валюты: золото для торговли, эссенция для магии, репутация для влияния. Продавайте урожай, трофеи боссов и крафтовые предметы.</p>
                 </div>
             </div>
         </div>
@@ -831,39 +972,39 @@
     <!-- Features Section -->
     <section class="section features">
         <div class="container">
-            <h2 class="section-title">ОСОБЕННОСТИ</h2>
+            <h2 class="section-title">УНИКАЛЬНЫЕ МЕХАНИКИ</h2>
             
             <div class="features-grid">
                 <div class="feature">
                     <div class="feature-icon">
-                        <i class="fas fa-clock"></i>
+                        <i class="fas fa-history"></i>
                     </div>
-                    <h4>Реальное время</h4>
-                    <p>10 минут реального времени = 1 игровая сессия. Каждая секунда важна.</p>
+                    <h4>Эхо-память</h4>
+                    <p>Почва помнит прошлое. Выращивайте растения, соответствующие памяти места: битвы, праздники, трагедии.</p>
                 </div>
                 
                 <div class="feature">
                     <div class="feature-icon">
-                        <i class="fas fa-random"></i>
+                        <i class="fas fa-dna"></i>
                     </div>
-                    <h4>Динамические события</h4>
-                    <p>Метеоритные дожди, пожары, саботаж, солнечные вспышки — будьте готовы ко всему.</p>
+                    <h4>Обратная мутация</h4>
+                    <p>Очищайте врагов особыми растениями, превращая их в мирных NPC, которые помогают на ферме.</p>
                 </div>
                 
                 <div class="feature">
                     <div class="feature-icon">
-                        <i class="fas fa-tachometer-alt"></i>
+                        <i class="fas fa-hand-sparkles"></i>
                     </div>
-                    <h4>Сложный баланс</h4>
-                    <p>Энергия на скрубберы или на ремонт? Решения имеют немедленные последствия.</p>
+                    <h4>Духи-помощники</h4>
+                    <p>Привлекайте духов природы особыми культурами. Каждый дух дает уникальные бонусы ферме.</p>
                 </div>
                 
                 <div class="feature">
                     <div class="feature-icon">
-                        <i class="fas fa-expand-arrows-alt"></i>
+                        <i class="fas fa-sync-alt"></i>
                     </div>
-                    <h4>Расширяемая архитектура</h4>
-                    <p>Прототип на Python легко модифицировать и расширять новыми системами.</p>
+                    <h4>Магические циклы</h4>
+                    <p>Помимо сезонов, существуют магические циклы Раскола, влияющие на рост растений и силу врагов.</p>
                 </div>
             </div>
         </div>
@@ -873,53 +1014,148 @@
     <section id="demo" class="section">
         <div class="container">
             <h2 class="section-title">ИНТЕРАКТИВНАЯ ДЕМОНСТРАЦИЯ</h2>
-            <p style="text-align: center; margin-bottom: 30px; font-size: 1.1rem;">Попробуйте управлять станцией в режиме реального времени. У вас есть 60 секунд до прибытия помощи.</p>
+            <p style="text-align: center; margin-bottom: 30px; font-size: 1.1rem;">Попробуйте основные механики игры: управление фермой и тактические бои.</p>
             
             <div class="demo-container">
-                <div class="demo-controls">
-                    <button class="demo-button" onclick="repairLeak()">
-                        <i class="fas fa-tools"></i> Ремонт утечки
-                    </button>
-                    <button class="demo-button" onclick="extinguishFire()">
-                        <i class="fas fa-fire-extinguisher"></i> Тушить пожар
-                    </button>
-                    <button class="demo-button" onclick="startGenerator()">
-                        <i class="fas fa-power-off"></i> Запуск генератора
-                    </button>
-                    <button class="demo-button" onclick="activateScrubbers()">
-                        <i class="fas fa-filter"></i> Аварийный скраббер
-                    </button>
-                    <button class="demo-button" onclick="resetDemo()">
-                        <i class="fas fa-redo"></i> Сбросить демо
-                    </button>
+                <div class="demo-tabs">
+                    <button class="demo-tab active" onclick="switchTab('farm')">Ферма</button>
+                    <button class="demo-tab" onclick="switchTab('combat')">Боевая система</button>
+                    <button class="demo-tab" onclick="switchTab('economy')">Экономика</button>
                 </div>
                 
-                <div class="demo-stats">
-                    <div class="stat">
-                        <div class="stat-value stat-normal" id="oxygen-level">95%</div>
-                        <div class="stat-label">Кислород</div>
+                <!-- Farm Tab -->
+                <div id="farm-tab" class="demo-content active">
+                    <div class="farm-demo-controls">
+                        <button class="farm-button" onclick="plantCrop('fire_pepper')">
+                            <i class="fas fa-pepper-hot"></i>
+                            <span>Огненный перец</span>
+                            <small>15 золота</small>
+                        </button>
+                        <button class="farm-button" onclick="plantCrop('frost_carrot')">
+                            <i class="fas fa-carrot"></i>
+                            <span>Морозная морковь</span>
+                            <small>20 золота</small>
+                        </button>
+                        <button class="farm-button" onclick="plantCrop('healing_herb')">
+                            <i class="fas fa-leaf"></i>
+                            <span>Целебная трава</span>
+                            <small>25 золота</small>
+                        </button>
+                        <button class="farm-button" onclick="plantCrop('echo_pumpkin')">
+                            <i class="fas fa-pumpkin"></i>
+                            <span>Эхо-тыква</span>
+                            <small>30 золота + 5 эссенции</small>
+                        </button>
+                        <button class="farm-button" onclick="harvestAll()">
+                            <i class="fas fa-sickle"></i>
+                            <span>Собрать урожай</span>
+                            <small>Все готовые растения</small>
+                        </button>
+                        <button class="farm-button" onclick="summonSpirit()">
+                            <i class="fas fa-sparkles"></i>
+                            <span>Призвать духа</span>
+                            <small>50 эссенции</small>
+                        </button>
                     </div>
-                    <div class="stat">
-                        <div class="stat-value stat-normal" id="pressure-level">101.3</div>
-                        <div class="stat-label">Давление (кПа)</div>
+                    
+                    <div class="demo-message" id="farm-message">
+                        Выберите растение для посадки на пустой участок или соберите готовый урожай.
                     </div>
-                    <div class="stat">
-                        <div class="stat-value stat-normal" id="co2-level">0.04%</div>
-                        <div class="stat-label">CO₂</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-value stat-normal" id="power-level">85%</div>
-                        <div class="stat-label">Энергия</div>
+                    
+                    <div style="margin-top: 30px; text-align: center;">
+                        <h4 style="color: var(--accent); margin-bottom: 15px;">Активные духи фермы</h4>
+                        <div id="active-spirits" style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                            <div class="spirit-tag" style="background: rgba(157, 78, 221, 0.2); padding: 8px 15px; border-radius: 20px; border: 1px solid var(--magic);">
+                                <i class="fas fa-wind"></i> Луми-корнегрыз
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div id="demo-messages">
-                    <div class="message-normal" id="demo-message">Стабильное состояние. Все системы в норме.</div>
+                <!-- Combat Tab -->
+                <div id="combat-tab" class="demo-content">
+                    <div class="combat-arena">
+                        <div class="combatant player-combatant">
+                            <div class="combatant-avatar player-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h3>Фермер</h3>
+                            <div class="health-bar">
+                                <div class="health-fill" id="player-health" style="width: 100%"></div>
+                                <div class="health-text" id="player-health-text">100/100</div>
+                            </div>
+                            <p>Уровень: <strong id="player-level">3</strong></p>
+                            <p>Экипировка: Тыквенный доспех, Свекольная булава</p>
+                        </div>
+                        
+                        <div class="combatant enemy-combatant">
+                            <div class="combatant-avatar enemy-avatar">
+                                <i class="fas fa-skull-crossbones"></i>
+                            </div>
+                            <h3>Осколок Минувшего</h3>
+                            <div class="health-bar">
+                                <div class="health-fill" id="enemy-health" style="width: 100%"></div>
+                                <div class="health-text" id="enemy-health-text">75/75</div>
+                            </div>
+                            <p>Тип: Призрак времени</p>
+                            <p>Слабость: Огненные атаки</p>
+                        </div>
+                    </div>
+                    
+                    <div class="combat-actions">
+                        <button class="combat-button" onclick="playerAttack('basic')">
+                            <i class="fas fa-fist-raised"></i> Базовая атака
+                        </button>
+                        <button class="combat-button" onclick="playerAttack('fire')">
+                            <i class="fas fa-fire"></i> Огненный удар
+                        </button>
+                        <button class="combat-button" onclick="playerAttack('heal')">
+                            <i class="fas fa-heart"></i> Лечение травами
+                        </button>
+                        <button class="combat-button" onclick="playerAttack('root')">
+                            <i class="fas fa-vine"></i> Опутывание корнями
+                        </button>
+                        <button class="combat-button" onclick="resetCombat()">
+                            <i class="fas fa-redo"></i> Сбросить бой
+                        </button>
+                    </div>
+                    
+                    <div class="combat-log" id="combat-log">
+                        <div class="log-entry">Бой начался! Вы встретили Осколок Минувшего.</div>
+                    </div>
                 </div>
                 
-                <div style="margin-top: 20px; text-align: center;">
-                    <div class="countdown">
-                        Время до прибытия помощи: <span id="demo-timer">01:00</span>
+                <!-- Economy Tab -->
+                <div id="economy-tab" class="demo-content">
+                    <div style="text-align: center; margin-bottom: 30px;">
+                        <h3 style="color: var(--accent); margin-bottom: 20px;">Три валюты игры</h3>
+                        <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 2rem; color: var(--warning); margin-bottom: 10px;"><i class="fas fa-coins"></i></div>
+                                <h4>Золото</h4>
+                                <p>Продажа обычного урожая</p>
+                                <p>Торговля с поселениями</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 2rem; color: var(--magic); margin-bottom: 10px;"><i class="fas fa-gem"></i></div>
+                                <h4>Эссенция Раскола</h4>
+                                <p>Победа над врагами</p>
+                                <p>Магические улучшения</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 2rem; color: var(--success); margin-bottom: 10px;"><i class="fas fa-star"></i></div>
+                                <h4>Репутация</h4>
+                                <p>Выполнение заданий</p>
+                                <p>Помощь NPC</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-message success">
+                        <h4>Пример торговли:</h4>
+                        <p>10 единиц Огненного перца → 50 золота</p>
+                        <p>1 Трофей босса "Кристалл времени" → 100 эссенции Раскола</p>
+                        <p>Выполнение задания "Спасение деревни" → +15 репутации с Орденом Очищения</p>
                     </div>
                 </div>
             </div>
@@ -929,50 +1165,71 @@
     <!-- Code Preview -->
     <section id="code" class="section">
         <div class="container">
-            <h2 class="section-title">ИСХОДНЫЙ КОД</h2>
-            <p style="text-align: center; margin-bottom: 30px;">Прототип игры написан на Python с использованием Pygame. Ниже представлена ключевая часть кода — система атмосферного контроля.</p>
+            <h2 class="section-title">АРХИТЕКТУРА КОДА</h2>
+            <p style="text-align: center; margin-bottom: 30px;">Игра разрабатывается на Python с использованием Pygame. Модульная структура позволяет легко расширять функциональность.</p>
             
             <div class="code-preview">
                 <pre><code>
-<span class="code-keyword">class</span> <span class="code-class">AtmosGrid</span>:
-    <span class="code-string">"""Отсек станции с атмосферой"""</span>
+<span class="code-keyword">class</span> <span class="code-class">Crop</span>:
+    <span class="code-string">"""Базовый класс растения"""</span>
     
-    <span class="code-keyword">def</span> <span class="code-function">__init__</span>(<span class="code-keyword">self</span>, name: str, is_breached: bool = <span class="code-keyword">False</span>):
+    <span class="code-keyword">def</span> <span class="code-function">__init__</span>(<span class="code-keyword">self</span>, name: str, growth_time: float, 
+                 yield_amount: int, crop_type: str):
         <span class="code-keyword">self</span>.name = name
-        <span class="code-keyword">self</span>.gases: Dict[GasType, Gas] = {}
-        <span class="code-keyword">self</span>.is_breached = is_breached
-        
-        <span class="code-comment"># Инициализируем стандартную атмосферу</span>
-        <span class="code-keyword">self</span>.gases[GasType.OXYGEN] = Gas(GasType.OXYGEN, <span class="code-string">800.0</span>, <span class="code-string">293.0</span>)
-        <span class="code-keyword">self</span>.gases[GasType.NITROGEN] = Gas(GasType.NITROGEN, <span class="code-string">3200.0</span>, <span class="code-string">293.0</span>)
+        <span class="code-keyword">self</span>.growth_time = growth_time
+        <span class="code-keyword">self</span>.current_growth = <span class="code-number">0.0</span>
+        <span class="code-keyword">self</span>.yield_amount = yield_amount
+        <span class="code-keyword">self</span>.crop_type = crop_type
+        <span class="code-keyword">self</span>.quality = <span class="code-string">"common"</span>
+        <span class="code-keyword">self</span>.element = <span class="code-keyword">None</span>
+        <span class="code-keyword">self</span>.echo_affinity = <span class="code-number">1.0</span>
     
-    <span class="code-keyword">@property</span>
-    <span class="code-keyword">def</span> <span class="code-function">pressure</span>(<span class="code-keyword">self</span>) -> <span class="code-class">float</span>:
-        <span class="code-string">"""Вычисляем давление по уравнению идеального газа"""</span>
-        <span class="code-keyword">if</span> <span class="code-keyword">self</span>.total_moles == <span class="code-string">0</span>:
-            <span class="code-keyword">return</span> <span class="code-string">0.0</span>
-        <span class="code-keyword">return</span> (<span class="code-keyword">self</span>.total_moles * <span class="code-keyword">self</span>.IDEAL_GAS_CONSTANT * 
-                <span class="code-keyword">self</span>.average_temperature) / <span class="code-keyword">self</span>.GRID_VOLUME
-    
-    <span class="code-keyword">def</span> <span class="code-function">update</span>(<span class="code-keyword">self</span>):
-        <span class="code-string">"""Обновление состояния атмосферы каждый тик"""</span>
-        <span class="code-comment"># 1. Утечка в космос при повреждении</span>
-        <span class="code-keyword">if</span> <span class="code-keyword">self</span>.is_breached:
-            leak_factor = <span class="code-string">0.05</span>
-            <span class="code-keyword">for</span> gas_type, gas <span class="code-keyword">in</span> <span class="code-function">list</span>(<span class="code-keyword">self</span>.gases.items()):
-                gas.amount -= gas.amount * leak_factor
+    <span class="code-keyword">def</span> <span class="code-function">update</span>(<span class="code-keyword">self</span>, dt: float, season_multiplier: float):
+        <span class="code-string">"""Обновление роста растения"""</span>
+        growth_rate = dt * season_multiplier * <span class="code-keyword">self</span>.echo_affinity
+        <span class="code-keyword">self</span>.current_growth += growth_rate
         
-        <span class="code-comment"># 2. Система жизнеобеспечения добавляет кислород</span>
-        <span class="code-keyword">if</span> <span class="code-keyword">self</span>.pressure &lt; <span class="code-string">95.0</span>:
-            <span class="code-keyword">if</span> GasType.OXYGEN <span class="code-keyword">in</span> <span class="code-keyword">self</span>.gases:
-                <span class="code-keyword">self</span>.gases[GasType.OXYGEN].amount += <span class="code-string">50.0</span>
-            <span class="code-keyword">else</span>:
-                <span class="code-keyword">self</span>.gases[GasType.OXYGEN] = Gas(GasType.OXYGEN, <span class="code-string">50.0</span>, <span class="code-string">293.0</span>)</code></pre>
+        <span class="code-comment"># Проверка на мутацию при достижении 50% роста</span>
+        <span class="code-keyword">if</span> <span class="code-number">0.5</span> <= <span class="code-keyword">self</span>.current_growth < <span class="code-number">0.51</span>:
+            <span class="code-keyword">self</span>.<span class="code-function">check_mutation</span>()
+    
+    <span class="code-keyword">def</span> <span class="code-function">check_mutation</span>(<span class="code-keyword">self</span>):
+        <span class="code-string">"""Проверка на случайную мутацию"""</span>
+        <span class="code-keyword">if</span> random.random() < <span class="code-number">0.05</span>:  <span class="code-comment">// 5% шанс</span>
+            mutation_type = random.choice([<span class="code-string">"elemental"</span>, 
+                                          <span class="code-string">"giant"</span>, 
+                                          <span class="code-string">"golden"</span>])
+            <span class="code-keyword">self</span>.<span class="code-function">apply_mutation</span>(mutation_type)
+    
+    <span class="code-keyword">def</span> <span class="code-function">apply_mutation</span>(<span class="code-keyword">self</span>, mutation_type: str):
+        <span class="code-string">"""Применение мутации к растению"""</span>
+        <span class="code-keyword">if</span> mutation_type == <span class="code-string">"elemental"</span>:
+            <span class="code-keyword">self</span>.element = random.choice([<span class="code-string">"fire"</span>, 
+                                                <span class="code-string">"frost"</span>, 
+                                                <span class="code-string">"lightning"</span>])
+            <span class="code-keyword">self</span>.name = f<span class="code-string">"{self.element.capitalize()} {self.name}"</span>
+            <span class="code-keyword">self</span>.quality = <span class="code-string">"rare"</span>
+            
+        <span class="code-keyword">elif</span> mutation_type == <span class="code-string">"giant"</span>:
+            <span class="code-keyword">self</span>.yield_amount *= <span class="code-number">2</span>
+            <span class="code-keyword">self</span>.name = f<span class="code-string">"Гигантский {self.name}"</span>
+            <span class="code-keyword">self</span>.quality = <span class="code-string">"uncommon"</span>
+    
+    <span class="code-keyword">def</span> <span class="code-function">harvest</span>(<span class="code-keyword">self</span>):
+        <span class="code-string">"""Сбор урожая"""</span>
+        <span class="code-keyword">if</span> <span class="code-keyword">self</span>.current_growth >= <span class="code-number">1.0</span>:
+            <span class="code-keyword">return</span> CropYield(
+                crop_type=<span class="code-keyword">self</span>.crop_type,
+                amount=<span class="code-keyword">self</span>.yield_amount,
+                quality=<span class="code-keyword">self</span>.quality,
+                element=<span class="code-keyword">self</span>.element
+            )
+        <span class="code-keyword">return</span> <span class="code-keyword">None</span></code></pre>
             </div>
             
             <div style="text-align: center; margin-top: 30px;">
                 <a href="https://github.com/Deeypry" target="_blank" class="cta-button"><i class="fab fa-github"></i> Мой GitHub</a>
-                <a href="https://t.me/xata_deepry" target="_blank" class="cta-button secondary"><i class="fab fa-telegram"></i> Telegram Канал</a>
+                <a href="https://t.me/xata_deepry" target="_blank" class="cta-button magic"><i class="fab fa-telegram"></i> Telegram Канал</a>
             </div>
         </div>
     </section>
@@ -982,8 +1239,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Space Station 14: Crisis Manager</h4>
-                    <p>Игровой прототип в стиле SS14. Управляйте станцией, спасайте экипаж, предотвращайте катастрофы.</p>
+                    <h4>Руины Эхо-Фермы</h4>
+                    <p>Фермерская RPG с элементами тактических боев и прокачкой. Возродите мир после магического катаклизма.</p>
                     <div class="social-links">
                         <a href="https://github.com/Deeypry" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
                         <a href="https://t.me/xata_deepry" target="_blank" class="social-link"><i class="fab fa-telegram"></i></a>
@@ -995,8 +1252,8 @@
                     <ul class="footer-links">
                         <li><a href="#">Python 3.10+</a></li>
                         <li><a href="#">Pygame</a></li>
-                        <li><a href="#">Система реального времени</a></li>
-                        <li><a href="#">Физика атмосферы</a></li>
+                        <li><a href="#">Модульная архитектура</a></li>
+                        <li><a href="#">JSON для данных</a></li>
                     </ul>
                 </div>
                 
@@ -1012,250 +1269,67 @@
             </div>
             
             <div class="copyright">
-                &copy; 2023 Space Station 14: Crisis Manager Prototype. Это неофициальный проект, вдохновленный SS14.<br>
+                &copy; 2023 Руины Эхо-Фермы | Echo Farm Ruins. Игровой прототип.<br>
                 Контакты: GitHub - <a href="https://github.com/Deeypry" style="color: var(--accent);">Deeypry</a> | Telegram - <a href="https://t.me/xata_deepry" style="color: var(--accent);">@xata_deepry</a>
             </div>
         </div>
     </footer>
 
     <script>
-        // Демо-таймер
-        let demoTime = 60;
-        let demoInterval;
-        
-        // Статистика демо
-        let demoStats = {
-            oxygen: 95,
-            pressure: 101.3,
-            co2: 0.04,
-            power: 85,
-            message: "Стабильное состояние. Все системы в норме.",
-            messageClass: "message-normal"
+        // ============= Глобальные переменные =============
+        let gameState = {
+            gold: 100,
+            essence: 25,
+            reputation: 10,
+            echoLevel: 1,
+            
+            // Ферма
+            plots: [
+                { id: 0, crop: null, growth: 0, ready: false },
+                { id: 1, crop: null, growth: 0, ready: false },
+                { id: 2, crop: null, growth: 0, ready: false },
+                { id: 3, crop: null, growth: 0, ready: false },
+                { id: 4, crop: null, growth: 0, ready: false },
+                { id: 5, crop: null, growth: 0, ready: false },
+                { id: 6, crop: null, growth: 0, ready: false },
+                { id: 7, crop: null, growth: 0, ready: false }
+            ],
+            
+            cropTypes: {
+                fire_pepper: { name: "Огненный перец", cost: 15, growthTime: 10, yield: 3, element: "fire" },
+                frost_carrot: { name: "Морозная морковь", cost: 20, growthTime: 15, yield: 4, element: "frost" },
+                healing_herb: { name: "Целебная трава", cost: 25, growthTime: 20, yield: 2, element: "life" },
+                echo_pumpkin: { name: "Эхо-тыква", cost: 30, essenceCost: 5, growthTime: 25, yield: 1, element: "echo" }
+            },
+            
+            activeSpirits: [
+                { name: "Луми-корнегрыз", effect: "Ускоряет рост корнеплодов на 20%" }
+            ],
+            
+            // Бой
+            playerHealth: 100,
+            playerMaxHealth: 100,
+            enemyHealth: 75,
+            enemyMaxHealth: 75,
+            combatTurn: "player",
+            combatLog: ["Бой начался! Вы встретили Осколок Минувшего."]
         };
         
-        // Инициализация демо
-        function initDemo() {
-            updateDemoDisplay();
-            startDemoTimer();
-        }
-        
-        // Запуск таймера демо
-        function startDemoTimer() {
-            clearInterval(demoInterval);
-            demoTime = 60;
-            
-            demoInterval = setInterval(() => {
-                demoTime--;
-                
-                // Обновить отображение времени
-                document.getElementById('demo-timer').textContent = 
-                    `${Math.floor(demoTime / 60)}${Math.floor((demoTime % 60) / 10)}:${demoTime % 10}${10 - (demoTime % 10)}`;
-                
-                // Случайные события
-                if (demoTime % 15 === 0) {
-                    randomEvent();
-                }
-                
-                // Пассивная деградация
-                if (Math.random() < 0.3) {
-                    demoStats.oxygen -= 0.5;
-                    demoStats.pressure -= 0.2;
-                    demoStats.co2 += 0.01;
-                    demoStats.power -= 0.3;
-                    
-                    // Проверка границ
-                    demoStats.oxygen = Math.max(0, Math.min(100, demoStats.oxygen));
-                    demoStats.pressure = Math.max(0, Math.min(101.3, demoStats.pressure));
-                    demoStats.co2 = Math.max(0.04, Math.min(10, demoStats.co2));
-                    demoStats.power = Math.max(0, Math.min(100, demoStats.power));
-                    
-                    updateDemoDisplay();
-                }
-                
-                // Конец демо
-                if (demoTime <= 0) {
-                    clearInterval(demoInterval);
-                    demoStats.message = "Помощь прибыла! Станция спасена!";
-                    demoStats.messageClass = "message-success";
-                    updateDemoDisplay();
-                }
-            }, 1000);
-        }
-        
-        // Случайное событие
-        function randomEvent() {
-            const events = [
-                {
-                    name: "Метеоритный дождь",
-                    effect: () => {
-                        demoStats.pressure -= 15;
-                        demoStats.message = "Метеоритный дождь! Падение давления в отсеках!";
-                        demoStats.messageClass = "message-danger";
-                    }
-                },
-                {
-                    name: "Пожар плазмы",
-                    effect: () => {
-                        demoStats.oxygen -= 10;
-                        demoStats.co2 += 1.5;
-                        demoStats.message = "Пожар плазмы в инженерном отсеке!";
-                        demoStats.messageClass = "message-danger";
-                    }
-                },
-                {
-                    name: "Солнечная вспышка",
-                    effect: () => {
-                        demoStats.power -= 25;
-                        demoStats.message = "Солнечная вспышка! Сбои в энергосистеме!";
-                        demoStats.messageClass = "message-warning";
-                    }
-                },
-                {
-                    name: "Утечка в космос",
-                    effect: () => {
-                        demoStats.pressure -= 25;
-                        demoStats.oxygen -= 5;
-                        demoStats.message = "Обнаружена утечка в корпусе!";
-                        demoStats.messageClass = "message-danger";
-                    }
-                }
-            ];
-            
-            const event = events[Math.floor(Math.random() * events.length)];
-            event.effect();
-            updateDemoDisplay();
-        }
-        
-        // Действия игрока
-        function repairLeak() {
-            if (demoStats.pressure < 80) {
-                demoStats.pressure += 25;
-                demoStats.power -= 10;
-                demoStats.message = "Утечка устранена. Давление восстанавливается.";
-                demoStats.messageClass = "message-success";
-                updateDemoDisplay();
-            } else {
-                demoStats.message = "Утечек не обнаружено.";
-                demoStats.messageClass = "message-normal";
-                updateDemoDisplay();
-            }
-        }
-        
-        function extinguishFire() {
-            demoStats.co2 = Math.max(0.04, demoStats.co2 - 0.5);
-            demoStats.power -= 15;
-            demoStats.message = "Пожар потушен. Уровень CO₂ снижается.";
-            demoStats.messageClass = "message-success";
-            updateDemoDisplay();
-        }
-        
-        function startGenerator() {
-            demoStats.power = Math.min(100, demoStats.power + 30);
-            demoStats.message = "Дополнительный генератор запущен. Энергосистема стабилизирована.";
-            demoStats.messageClass = "message-success";
-            updateDemoDisplay();
-        }
-        
-        function activateScrubbers() {
-            demoStats.co2 = Math.max(0.04, demoStats.co2 - 1.2);
-            demoStats.power -= 8;
-            demoStats.message = "Скрабберы активированы. Очистка атмосферы.";
-            demoStats.messageClass = "message-success";
-            updateDemoDisplay();
-        }
-        
-        function resetDemo() {
-            clearInterval(demoInterval);
-            demoStats = {
-                oxygen: 95,
-                pressure: 101.3,
-                co2: 0.04,
-                power: 85,
-                message: "Стабильное состояние. Все системы в норме.",
-                messageClass: "message-normal"
-            };
-            initDemo();
-        }
-        
-        // Обновление отображения
-        function updateDemoDisplay() {
-            // Обновление значений
-            document.getElementById('oxygen-level').textContent = `${demoStats.oxygen.toFixed(1)}%`;
-            document.getElementById('pressure-level').textContent = demoStats.pressure.toFixed(1);
-            document.getElementById('co2-level').textContent = `${demoStats.co2.toFixed(2)}%`;
-            document.getElementById('power-level').textContent = `${Math.round(demoStats.power)}%`;
-            
-            // Обновление цветов в зависимости от значений
-            updateStatColor('oxygen-level', demoStats.oxygen, 80, 60);
-            updateStatColor('pressure-level', demoStats.pressure, 80, 60);
-            updateStatColor('co2-level', demoStats.co2 * 100, 1, 3);
-            updateStatColor('power-level', demoStats.power, 30, 15);
-            
-            // Обновление сообщения
-            const messageElement = document.getElementById('demo-message');
-            messageElement.textContent = demoStats.message;
-            messageElement.className = demoStats.messageClass;
-        }
-        
-        // Обновление цвета статистики
-        function updateStatColor(elementId, value, warningThreshold, dangerThreshold) {
-            const element = document.getElementById(elementId);
-            element.classList.remove('stat-normal', 'stat-warning', 'stat-danger');
-            
-            if (elementId === 'co2-level') {
-                if (value > dangerThreshold) {
-                    element.classList.add('stat-danger');
-                } else if (value > warningThreshold) {
-                    element.classList.add('stat-warning');
-                } else {
-                    element.classList.add('stat-normal');
-                }
-            } else {
-                if (value < dangerThreshold) {
-                    element.classList.add('stat-danger');
-                } else if (value < warningThreshold) {
-                    element.classList.add('stat-warning');
-                } else {
-                    element.classList.add('stat-normal');
-                }
-            }
-        }
-        
-        // Главный таймер в шапке
-        let mainTime = 600;
-        const mainTimer = setInterval(() => {
-            if (mainTime > 0) {
-                mainTime--;
-                const minutes = Math.floor(mainTime / 60);
-                const seconds = mainTime % 60;
-                document.getElementById('time-counter').textContent = 
-                    `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-            } else {
-                clearInterval(mainTimer);
-            }
-        }, 1000);
-        
-        // Функции прокрутки
-        function scrollToDemo() {
-            document.getElementById('demo').scrollIntoView({ behavior: 'smooth' });
-        }
-        
-        function scrollToCode() {
-            document.getElementById('code').scrollIntoView({ behavior: 'smooth' });
-        }
-        
-        // Инициализация при загрузке
+        // ============= Инициализация =============
         document.addEventListener('DOMContentLoaded', () => {
-            initDemo();
+            initFarmPlots();
+            updateStats();
+            updateFarmMessage("Добро пожаловать на ферму! Посадите свое первое растение.");
             
-            // Плавная прокрутка для якорей
+            // Автоматический рост растений
+            setInterval(growCrops, 1000);
+            
+            // Плавная прокрутка
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
-                    
                     const targetId = this.getAttribute('href');
                     if (targetId === '#') return;
-                    
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
                         window.scrollTo({
@@ -1265,16 +1339,437 @@
                     }
                 });
             });
+        });
+        
+        // ============= Ферма =============
+        function initFarmPlots() {
+            const farmPlots = document.getElementById('farm-plots');
+            farmPlots.innerHTML = '';
             
-            // Эффект параллакса для героя
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                const hero = document.querySelector('.hero');
-                if (hero) {
-                    hero.style.transform = `translateY(${scrolled * 0.05}px)`;
+            gameState.plots.forEach(plot => {
+                const plotElement = document.createElement('div');
+                plotElement.className = 'plot';
+                
+                if (plot.crop) {
+                    plotElement.classList.add(`plot-planted-${plot.id % 3 + 1}`);
+                    if (plot.growth >= 1) {
+                        plotElement.classList.add('plot-ready');
+                    } else if (plot.growth > 0) {
+                        plotElement.classList.add('plot-growing');
+                    }
+                    
+                    const growthPercent = Math.min(100, plot.growth * 100);
+                    
+                    plotElement.innerHTML = `
+                        <div class="plot-content">
+                            <div class="plot-icon">
+                                <i class="fas ${getCropIcon(plot.crop)}"></i>
+                            </div>
+                            <div class="plot-name">${plot.crop}</div>
+                            <div class="plot-progress">
+                                <div class="plot-progress-bar" style="width: ${growthPercent}%"></div>
+                            </div>
+                            ${plot.growth >= 1 ? '<small>Готово!</small>' : ''}
+                        </div>
+                    `;
+                    
+                    plotElement.onclick = () => harvestPlot(plot.id);
+                } else {
+                    plotElement.classList.add('plot-empty');
+                    plotElement.innerHTML = `
+                        <div class="plot-content">
+                            <div class="plot-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="plot-name">Пустой участок</div>
+                            <small>Кликните для посадки</small>
+                        </div>
+                    `;
+                    
+                    plotElement.onclick = () => selectPlotForPlanting(plot.id);
+                }
+                
+                farmPlots.appendChild(plotElement);
+            });
+        }
+        
+        function getCropIcon(cropType) {
+            const icons = {
+                'fire_pepper': 'fa-pepper-hot',
+                'frost_carrot': 'fa-carrot',
+                'healing_herb': 'fa-leaf',
+                'echo_pumpkin': 'fa-pumpkin'
+            };
+            return icons[cropType] || 'fa-seedling';
+        }
+        
+        function selectPlotForPlanting(plotId) {
+            updateFarmMessage(`Выберите растение для посадки на участок ${plotId + 1}.`);
+            // В реальной игре здесь будет открыто меню выбора растения
+        }
+        
+        function plantCrop(cropType) {
+            const cropInfo = gameState.cropTypes[cropType];
+            if (!cropInfo) return;
+            
+            // Проверка стоимости
+            if (gameState.gold < cropInfo.cost) {
+                updateFarmMessage(`Недостаточно золота! Нужно ${cropInfo.cost}, есть ${gameState.gold}.`, 'warning');
+                return;
+            }
+            
+            if (cropInfo.essenceCost && gameState.essence < cropInfo.essenceCost) {
+                updateFarmMessage(`Недостаточно эссенции! Нужно ${cropInfo.essenceCost}, есть ${gameState.essence}.`, 'warning');
+                return;
+            }
+            
+            // Поиск пустого участка
+            const emptyPlot = gameState.plots.find(plot => plot.crop === null);
+            if (!emptyPlot) {
+                updateFarmMessage("Нет свободных участков для посадки!", 'warning');
+                return;
+            }
+            
+            // Посадка
+            emptyPlot.crop = cropType;
+            emptyPlot.growth = 0;
+            emptyPlot.ready = false;
+            
+            // Списание стоимости
+            gameState.gold -= cropInfo.cost;
+            if (cropInfo.essenceCost) {
+                gameState.essence -= cropInfo.essenceCost;
+            }
+            
+            updateStats();
+            initFarmPlots();
+            updateFarmMessage(`Посажен ${cropInfo.name}! Растет...`, 'success');
+        }
+        
+        function growCrops() {
+            let anyGrowth = false;
+            
+            gameState.plots.forEach(plot => {
+                if (plot.crop && plot.growth < 1) {
+                    const cropInfo = gameState.cropTypes[plot.crop];
+                    const growthRate = 0.01 * (1 + gameState.echoLevel * 0.1); // Ускоряется с уровнем эхо
+                    
+                    plot.growth += growthRate / (cropInfo.growthTime / 10);
+                    if (plot.growth >= 1) {
+                        plot.growth = 1;
+                        plot.ready = true;
+                        anyGrowth = true;
+                    }
                 }
             });
-        });
+            
+            if (anyGrowth) {
+                initFarmPlots();
+            }
+        }
+        
+        function harvestPlot(plotId) {
+            const plot = gameState.plots[plotId];
+            if (!plot.crop || plot.growth < 1) return;
+            
+            const cropInfo = gameState.cropTypes[plot.crop];
+            const yieldAmount = cropInfo.yield;
+            
+            // Награда за урожай
+            let goldEarned = cropInfo.cost * 2;
+            let essenceEarned = 0;
+            
+            if (cropInfo.element === 'echo') {
+                essenceEarned = 10;
+            }
+            
+            gameState.gold += goldEarned;
+            gameState.essence += essenceEarned;
+            
+            // Шанс повышения уровня эхо
+            if (Math.random() < 0.1) {
+                gameState.echoLevel++;
+                updateFarmMessage(`Уровень эхо повышен до ${gameState.echoLevel}!`, 'success');
+            }
+            
+            // Сброс участка
+            plot.crop = null;
+            plot.growth = 0;
+            plot.ready = false;
+            
+            updateStats();
+            initFarmPlots();
+            updateFarmMessage(`Собран урожай ${cropInfo.name}! Получено ${goldEarned} золота${essenceEarned > 0 ? ` и ${essenceEarned} эссенции` : ''}.`, 'success');
+        }
+        
+        function harvestAll() {
+            let harvested = 0;
+            let totalGold = 0;
+            let totalEssence = 0;
+            
+            gameState.plots.forEach(plot => {
+                if (plot.crop && plot.growth >= 1) {
+                    const cropInfo = gameState.cropTypes[plot.crop];
+                    totalGold += cropInfo.cost * 2;
+                    
+                    if (cropInfo.element === 'echo') {
+                        totalEssence += 10;
+                    }
+                    
+                    plot.crop = null;
+                    plot.growth = 0;
+                    plot.ready = false;
+                    harvested++;
+                }
+            });
+            
+            if (harvested > 0) {
+                gameState.gold += totalGold;
+                gameState.essence += totalEssence;
+                
+                updateStats();
+                initFarmPlots();
+                updateFarmMessage(`Собрано ${harvested} урожаев! Получено ${totalGold} золота и ${totalEssence} эссенции.`, 'success');
+            } else {
+                updateFarmMessage("Нет готовых к сбору растений.", 'warning');
+            }
+        }
+        
+        function summonSpirit() {
+            if (gameState.essence < 50) {
+                updateFarmMessage("Нужно 50 эссенции для призыва духа!", 'warning');
+                return;
+            }
+            
+            gameState.essence -= 50;
+            
+            const spirits = [
+                { name: "Пикси-опылитель", effect: "Увеличивает урожайность на 15%" },
+                { name: "Гном-землекоп", effect: "Ускоряет рост всех растений на 10%" },
+                { name: "Фея-хранительница", effect: "Защищает от вредителей" }
+            ];
+            
+            const newSpirit = spirits[Math.floor(Math.random() * spirits.length)];
+            gameState.activeSpirits.push(newSpirit);
+            
+            updateStats();
+            updateActiveSpirits();
+            updateFarmMessage(`Призван дух: ${newSpirit.name}! ${newSpirit.effect}`, 'success');
+        }
+        
+        // ============= Бой =============
+        function playerAttack(attackType) {
+            if (gameState.combatTurn !== 'player') return;
+            
+            let damage = 0;
+            let message = "";
+            
+            switch (attackType) {
+                case 'basic':
+                    damage = Math.floor(Math.random() * 15) + 10;
+                    message = `Вы атакуете, нанося ${damage} урона!`;
+                    break;
+                case 'fire':
+                    damage = Math.floor(Math.random() * 25) + 15;
+                    message = `Огненный удар наносит ${damage} урона! Эффективно против ледяных врагов!`;
+                    break;
+                case 'heal':
+                    const healAmount = Math.floor(Math.random() * 20) + 10;
+                    gameState.playerHealth = Math.min(gameState.playerMaxHealth, gameState.playerHealth + healAmount);
+                    updatePlayerHealth();
+                    message = `Вы используете целебные травы, восстанавливая ${healAmount} здоровья.`;
+                    break;
+                case 'root':
+                    damage = Math.floor(Math.random() * 10) + 5;
+                    message = `Корни опутывают врага, нанося ${damage} урона и замедляя его.`;
+                    break;
+            }
+            
+            if (damage > 0) {
+                gameState.enemyHealth = Math.max(0, gameState.enemyHealth - damage);
+                updateEnemyHealth();
+            }
+            
+            addCombatLog(message);
+            gameState.combatTurn = 'enemy';
+            
+            // Проверка победы
+            if (gameState.enemyHealth <= 0) {
+                victory();
+                return;
+            }
+            
+            // Ход врага
+            setTimeout(enemyTurn, 1000);
+        }
+        
+        function enemyTurn() {
+            if (gameState.enemyHealth <= 0) return;
+            
+            const attacks = [
+                { name: "Удар времени", damage: () => Math.floor(Math.random() * 12) + 8 },
+                { name: "Замедление", damage: () => Math.floor(Math.random() * 8) + 5 },
+                { name: "Временной разрыв", damage: () => Math.floor(Math.random() * 20) + 10 }
+            ];
+            
+            const attack = attacks[Math.floor(Math.random() * attacks.length)];
+            const damage = attack.damage();
+            
+            gameState.playerHealth = Math.max(0, gameState.playerHealth - damage);
+            updatePlayerHealth();
+            
+            addCombatLog(`${attack.name} врага наносит ${damage} урона!`);
+            gameState.combatTurn = 'player';
+            
+            // Проверка поражения
+            if (gameState.playerHealth <= 0) {
+                defeat();
+            }
+        }
+        
+        function victory() {
+            const goldReward = Math.floor(Math.random() * 50) + 25;
+            const essenceReward = Math.floor(Math.random() * 10) + 5;
+            
+            gameState.gold += goldReward;
+            gameState.essence += essenceReward;
+            gameState.reputation += 5;
+            
+            updateStats();
+            addCombatLog(`ПОБЕДА! Получено ${goldReward} золота, ${essenceReward} эссенции и 5 репутации.`);
+            addCombatLog("Нажмите 'Сбросить бой' для начала нового сражения.");
+        }
+        
+        function defeat() {
+            addCombatLog("ПОРАЖЕНИЕ... Вы теряете сознание.");
+            addCombatLog("Нажмите 'Сбросить бой' чтобы попробовать снова.");
+        }
+        
+        function resetCombat() {
+            gameState.playerHealth = gameState.playerMaxHealth;
+            gameState.enemyHealth = gameState.enemyMaxHealth;
+            gameState.combatTurn = 'player';
+            gameState.combatLog = ["Бой начался! Вы встретили Осколок Минувшего."];
+            
+            updatePlayerHealth();
+            updateEnemyHealth();
+            updateCombatLog();
+        }
+        
+        // ============= Вспомогательные функции =============
+        function updateStats() {
+            document.getElementById('gold-amount').textContent = gameState.gold;
+            document.getElementById('essence-amount').textContent = gameState.essence;
+            document.getElementById('reputation-amount').textContent = gameState.reputation;
+            document.getElementById('echo-level').textContent = gameState.echoLevel;
+            
+            // Обновление цветов статистики
+            updateStatColor('gold-amount', gameState.gold, 50, 20);
+            updateStatColor('essence-amount', gameState.essence, 30, 10);
+        }
+        
+        function updateStatColor(elementId, value, warningThreshold, dangerThreshold) {
+            const element = document.getElementById(elementId);
+            element.classList.remove('stat-normal', 'stat-warning', 'stat-danger', 'stat-magic');
+            
+            if (elementId.includes('essence')) {
+                element.classList.add('stat-magic');
+            } else if (value < dangerThreshold) {
+                element.classList.add('stat-danger');
+            } else if (value < warningThreshold) {
+                element.classList.add('stat-warning');
+            } else {
+                element.classList.add('stat-normal');
+            }
+        }
+        
+        function updateFarmMessage(message, type = 'normal') {
+            const messageElement = document.getElementById('farm-message');
+            messageElement.textContent = message;
+            messageElement.className = 'demo-message ' + type;
+        }
+        
+        function updateActiveSpirits() {
+            const spiritsContainer = document.getElementById('active-spirits');
+            spiritsContainer.innerHTML = '';
+            
+            gameState.activeSpirits.forEach(spirit => {
+                const spiritElement = document.createElement('div');
+                spiritElement.className = 'spirit-tag';
+                spiritElement.style.cssText = 'background: rgba(157, 78, 221, 0.2); padding: 8px 15px; border-radius: 20px; border: 1px solid var(--magic); margin: 5px;';
+                spiritElement.innerHTML = `<i class="fas fa-sparkles"></i> ${spirit.name}`;
+                spiritsContainer.appendChild(spiritElement);
+            });
+        }
+        
+        function updatePlayerHealth() {
+            const healthPercent = (gameState.playerHealth / gameState.playerMaxHealth) * 100;
+            document.getElementById('player-health').style.width = `${healthPercent}%`;
+            document.getElementById('player-health-text').textContent = 
+                `${gameState.playerHealth}/${gameState.playerMaxHealth}`;
+        }
+        
+        function updateEnemyHealth() {
+            const healthPercent = (gameState.enemyHealth / gameState.enemyMaxHealth) * 100;
+            document.getElementById('enemy-health').style.width = `${healthPercent}%`;
+            document.getElementById('enemy-health-text').textContent = 
+                `${gameState.enemyHealth}/${gameState.enemyMaxHealth}`;
+        }
+        
+        function addCombatLog(message) {
+            gameState.combatLog.push(message);
+            if (gameState.combatLog.length > 10) {
+                gameState.combatLog.shift();
+            }
+            updateCombatLog();
+        }
+        
+        function updateCombatLog() {
+            const logContainer = document.getElementById('combat-log');
+            logContainer.innerHTML = '';
+            
+            gameState.combatLog.forEach(entry => {
+                const logEntry = document.createElement('div');
+                logEntry.className = 'log-entry';
+                logEntry.textContent = entry;
+                logContainer.appendChild(logEntry);
+            });
+            
+            logContainer.scrollTop = logContainer.scrollHeight;
+        }
+        
+        function switchTab(tabName) {
+            // Скрыть все вкладки
+            document.querySelectorAll('.demo-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.demo-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Показать выбранную вкладку
+            document.getElementById(`${tabName}-tab`).classList.add('active');
+            document.querySelector(`.demo-tab[onclick="switchTab('${tabName}')"]`).classList.add('active');
+            
+            if (tabName === 'combat') {
+                resetCombat();
+            }
+        }
+        
+        function scrollToDemo() {
+            document.getElementById('demo').scrollIntoView({ behavior: 'smooth' });
+            switchTab('farm');
+        }
+        
+        function scrollToCombat() {
+            document.getElementById('demo').scrollIntoView({ behavior: 'smooth' });
+            switchTab('combat');
+        }
+        
+        function scrollToCode() {
+            document.getElementById('code').scrollIntoView({ behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>
